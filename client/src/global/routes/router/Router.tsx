@@ -1,19 +1,14 @@
-import { Navigate, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import ROUTES from "../model/routes.model";
-import PrivateRoute from "../components/PrivateRoute";
+import Portfolio from "../../../components/Portfolio";
 
 const Router = () => {
+  console.log("Router loaded");
+
   return (
     <Routes>
-      {/* <Route path={ROUTES.LOGIN} element={<LoginPage />} />
-      <Route path={ROUTES.REGISTER} element={<RegisterPage />} /> */}
-
-      <Route path={ROUTES.ROOT} element={<PrivateRoute />}>
-        <Route index element={<Navigate to={ROUTES.ROOT} replace />} />
-        {/* <Route path={ROUTES.LOGOUT} element={<LogoutPage />} /> */}
-      </Route>
+      <Route path={ROUTES.ROOT} element={<Portfolio />} />
     </Routes>
   );
 };
-
 export default Router;

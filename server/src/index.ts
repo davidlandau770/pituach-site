@@ -1,4 +1,5 @@
 import express from "express";
+import path from "path";
 import cors from "./middlewares/cors";
 import router from "./middlewares/router";
 import handleError from "./middlewares/handleServerError";
@@ -10,7 +11,10 @@ const app = express();
 app.use(cors);
 app.use(express.json());
 app.use(router);
-app.use(express.static("./public"));
+app.use(express.static(path.join(__dirname, "../client/dist")));
+app.use((req, res) => {
+  res.sendFile(path.join(__dirname, "../client/dist/index.html"));
+});
 
 createTables()
   .then(() => insertTables())
@@ -27,9 +31,16 @@ createTables()
   .catch((error) => {
     console.log(
       "DB CONNECTION ERROR",
-      `could not connect to the postgres DB:${error.message} `,
-      "redBright",
+      `could not connect to the postgres DB:${error.message}. Starting server without DB.`,
+      "yellowBright",
     );
+    app.listen(PORT, () => {
+      console.log(
+        "INITIAL SERVER",
+        `server run on port ${PORT} (without DB)`,
+        "blueBright",
+      );
+    });
   });
 
 app.use(handleError);

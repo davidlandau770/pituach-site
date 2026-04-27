@@ -1,27 +1,45 @@
-# React + TypeScript + Vite
+# אתר פורטפוליו - מפתח אתרים
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+אתר פורטפוליו פשוט ומתוכנן היטב עבור מפתח אתרים, הכולל טופס יצירת קשר.
 
-Currently, two official plugins are available:
+## תכונות
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- עמוד בית עם הקדמה
+- חלק "אודות"
+- גלריה של פרויקטים
+- טופס יצירת קשר
+- עיצוב רספונסיבי עם Material-UI
+- שפה עברית
 
-## React Compiler
+## התקנה והרצה
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+1. התקן תלויות:
 
-## Expanding the ESLint configuration
+   ```bash
+   npm install
+   ```
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+2. הרץ את שרת הפיתוח:
+   ```bash
+   npm run dev
+   ```
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+האתר יהיה זמין בכתובת http://localhost:5174
+
+## שרת Backend
+
+השרת (Express.js) רץ על פורט 9000 ומטפל בבקשות ה-API של טופס יצירת הקשר.
+
+## בניית הפרויקט
+
+```bash
+npm run build
+```
+
+{
+files: ['**/*.{ts,tsx}'],
+extends: [
+// Other configs...
 
       // Remove tseslint.configs.recommended and replace with this
       tseslint.configs.recommendedTypeChecked,
@@ -39,9 +57,11 @@ export default defineConfig([
       },
       // other options...
     },
-  },
+
+},
 ])
-```
+
+````
 
 You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
@@ -70,4 +90,4 @@ export default defineConfig([
     },
   },
 ])
-```
+````
