@@ -146,7 +146,6 @@ const ProjectsSection: FC = () => (
     id="projects"
     sx={{ py: { xs: 5, md: 16 }, position: "relative", overflow: "hidden" }}
   >
-    {/* Subtle grid */}
     <Box
       sx={{
         position: "absolute",
@@ -163,7 +162,6 @@ const ProjectsSection: FC = () => (
       }}
     />
 
-    {/* Spotlight top-center — masked */}
     <Box
       sx={{
         position: "absolute",
@@ -181,7 +179,6 @@ const ProjectsSection: FC = () => (
       }}
     />
 
-    {/* Spotlight bottom-right — masked */}
     <Box
       sx={{
         position: "absolute",
@@ -198,7 +195,6 @@ const ProjectsSection: FC = () => (
       }}
     />
 
-    {/* Floating orb */}
     <Box
       sx={{
         position: "absolute",

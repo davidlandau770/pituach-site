@@ -6,7 +6,7 @@ import ServicesSection from "../sections/ServicesSection";
 import StatsSection from "../sections/StatsSection";
 import ProjectsSection from "../sections/ProjectsSection";
 import AboutSection from "../sections/AboutSection";
-import ContactForm from "./ContactForm";
+import ContactSection from "../sections/ContactSection";
 import FooterSection from "../sections/FooterSection";
 
 const Portfolio: FC = () => {
@@ -38,7 +38,7 @@ const Portfolio: FC = () => {
       <StatsSection />
       <ProjectsSection />
       <AboutSection />
-      <ContactForm />
+      <ContactSection />
       <FooterSection />
     </Box>
   );

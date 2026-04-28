@@ -107,7 +107,6 @@ const ServicesSection: FC = () => (
       overflow: "hidden",
     }}
   >
-    {/* Subtle grid — fades at edges */}
     <Box
       sx={{
         position: "absolute",
@@ -124,7 +123,6 @@ const ServicesSection: FC = () => (
       }}
     />
 
-    {/* Spotlight right — masked so it doesn't bleed to adjacent sections */}
     <Box
       sx={{
         position: "absolute",
@@ -141,7 +139,6 @@ const ServicesSection: FC = () => (
       }}
     />
 
-    {/* Spotlight left-bottom — masked */}
     <Box
       sx={{
         position: "absolute",
@@ -158,7 +155,6 @@ const ServicesSection: FC = () => (
       }}
     />
 
-    {/* Floating orb */}
     <Box
       sx={{
         position: "absolute",

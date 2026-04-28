@@ -22,7 +22,6 @@ const HeroSection: FC<Props> = ({ onScrollTo }) => {
         pt: 12,
       }}
     >
-      {/* === ANIMATED GRID === */}
       <Box
         sx={{
           position: "absolute",
@@ -39,7 +38,6 @@ const HeroSection: FC<Props> = ({ onScrollTo }) => {
         }}
       />
 
-      {/* === FLOATING PARTICLES === */}
       {PARTICLES.map((p) => (
         <Box
           key={p.id}
@@ -57,7 +55,6 @@ const HeroSection: FC<Props> = ({ onScrollTo }) => {
         />
       ))}
 
-      {/* === ORB 1 — muted indigo === */}
       <Box
         sx={{
           position: "absolute",
@@ -73,7 +70,6 @@ const HeroSection: FC<Props> = ({ onScrollTo }) => {
           pointerEvents: "none",
         }}
       />
-      {/* === ORB 2 — muted teal === */}
       <Box
         sx={{
           position: "absolute",
@@ -89,7 +85,6 @@ const HeroSection: FC<Props> = ({ onScrollTo }) => {
           pointerEvents: "none",
         }}
       />
-      {/* === ORB 3 — very subtle warm === */}
       <Box
         sx={{
           position: "absolute",
@@ -105,7 +100,6 @@ const HeroSection: FC<Props> = ({ onScrollTo }) => {
           pointerEvents: "none",
         }}
       />
-      {/* === ORB 4 — muted violet === */}
       <Box
         sx={{
           position: "absolute",
@@ -122,12 +116,10 @@ const HeroSection: FC<Props> = ({ onScrollTo }) => {
         }}
       />
 
-      {/* === CONTENT === */}
       <Container
         maxWidth="lg"
         sx={{ position: "relative", zIndex: 1, textAlign: "center" }}
       >
-        {/* Status badge */}
         <Box
           sx={{
             display: "inline-flex",
@@ -165,7 +157,6 @@ const HeroSection: FC<Props> = ({ onScrollTo }) => {
           </Typography>
         </Box>
 
-        {/* Main title */}
         <Typography
           variant="h1"
           sx={{
@@ -192,7 +183,6 @@ const HeroSection: FC<Props> = ({ onScrollTo }) => {
           פיתוח 770
         </Typography>
 
-        {/* Typewriter */}
         <Typography
           sx={{
             fontSize: { xs: "1.3rem", md: "2.1rem" },
@@ -208,7 +198,6 @@ const HeroSection: FC<Props> = ({ onScrollTo }) => {
           <TypewriterText />
         </Typography>
 
-        {/* Description */}
         <Typography
           sx={{
             fontSize: { xs: "0.95rem", md: "1.08rem" },
@@ -224,7 +213,6 @@ const HeroSection: FC<Props> = ({ onScrollTo }) => {
           לחיים עם טכנולוגיה מתקדמת וחוויית משתמש שלא נשכחת.
         </Typography>
 
-        {/* CTAs */}
         <Box
           sx={{
             display: "flex",
@@ -282,7 +270,6 @@ const HeroSection: FC<Props> = ({ onScrollTo }) => {
           </Button>
         </Box>
 
-        {/* Tech chips */}
         <Box
           sx={{
             display: "flex",
@@ -321,7 +308,6 @@ const HeroSection: FC<Props> = ({ onScrollTo }) => {
         </Box>
       </Container>
 
-      {/* Scroll indicator */}
       <Box
         sx={{
           position: "absolute",

@@ -108,7 +108,6 @@ const AboutSection: FC = () => {
       ref={ref}
       sx={{
         py: { xs: 5, md: 16 },
-        /* Restore original subtle background, faded at edges instead of hard border */
         background: "rgba(14, 19, 35, 0.4)",
         maskImage: sectionMask,
         WebkitMaskImage: sectionMask,
@@ -116,7 +115,6 @@ const AboutSection: FC = () => {
         overflow: "hidden",
       }}
     >
-      {/* Spotlight top-left — masked so it doesn't bleed */}
       <Box
         sx={{
           position: "absolute",
@@ -133,7 +131,6 @@ const AboutSection: FC = () => {
         }}
       />
 
-      {/* Spotlight bottom-right — masked */}
       <Box
         sx={{
           position: "absolute",
@@ -150,7 +147,6 @@ const AboutSection: FC = () => {
         }}
       />
 
-      {/* Floating orbs — masked */}
       <Box
         sx={{
           position: "absolute",

@@ -13,7 +13,7 @@ import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import SendIcon from "@mui/icons-material/Send";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
-import SectionHeader from "./SectionHeader";
+import SectionHeader from "../components/SectionHeader";
 
 interface FormData {
   name: string;
@@ -84,7 +84,7 @@ const contactInfo: ContactItem[] = [
   },
 ];
 
-const ContactForm: FC = () => {
+const ContactSection: FC = () => {
   const [form, setForm] = useState<FormData>({
     name: "",
     email: "",
@@ -106,7 +106,7 @@ const ContactForm: FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("loading");
-    setErrorMessage(""); // איפוס שגיאה קודמת
+    setErrorMessage("");
 
     try {
       const res = await fetch(`${import.meta.env.VITE_API_URL}/api/contact`, {
@@ -133,12 +133,12 @@ const ContactForm: FC = () => {
       }
     }
   };
+
   return (
     <Box
       id="contact"
       sx={{ py: { xs: 5, md: 16 }, position: "relative", overflow: "hidden" }}
     >
-      {/* Section background with smooth fades */}
       <Box
         sx={{
           position: "absolute",
@@ -151,7 +151,6 @@ const ContactForm: FC = () => {
         }}
       />
 
-      {/* Animated grid */}
       <Box
         sx={{
           position: "absolute",
@@ -168,7 +167,6 @@ const ContactForm: FC = () => {
         }}
       />
 
-      {/* Spotlights — masked to prevent bleeding at section edges */}
       <Box
         sx={{
           position: "absolute",
@@ -245,7 +243,6 @@ const ContactForm: FC = () => {
             boxShadow: "0 16px 50px rgba(0,0,0,0.28)",
           }}
         >
-          {/* Contact info strip */}
           <Box
             sx={{
               display: "flex",
@@ -440,4 +437,4 @@ const ContactForm: FC = () => {
   );
 };
 
-export default ContactForm;
+export default ContactSection;

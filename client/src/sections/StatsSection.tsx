@@ -68,7 +68,6 @@ const StatsSection: FC = () => (
   <Box
     sx={{
       py: { xs: 8, md: 11 },
-      /* Restore original background, faded at edges instead of hard border */
       background: "linear-gradient(135deg, rgba(90, 78, 160, 0.06), rgba(50, 120, 170, 0.04))",
       maskImage: sectionMask,
       WebkitMaskImage: sectionMask,
@@ -76,7 +75,6 @@ const StatsSection: FC = () => (
       overflow: "hidden",
     }}
   >
-    {/* Center spotlight — masked so it never reaches section edges */}
     <Box
       sx={{
         position: "absolute",
@@ -93,7 +91,6 @@ const StatsSection: FC = () => (
       }}
     />
 
-    {/* Side spotlights */}
     <Box
       sx={{
         position: "absolute",
