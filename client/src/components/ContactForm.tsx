@@ -40,12 +40,10 @@ const fieldSx = (focused: string | null, name: string) => ({
     },
     "&.Mui-focused fieldset": {
       borderColor: "#7266B0 !important",
-      // boxShadow: "0 0 0 3px rgba(110, 95, 175, 0.1)",
     },
   },
   "& .MuiInputLabel-root": {
     color: "#3D4A60",
-    // left: "auto",
     right: 30,
     transformOrigin: "top right",
     "&.Mui-focused": { color: "#9A90C8" },
@@ -57,21 +55,10 @@ const fieldSx = (focused: string | null, name: string) => ({
   "& .MuiOutlinedInput-notchedOutline legend": {
     textAlign: "right",
   },
-  // "& .MuiOutlinedInput-input": {
-  // color: "#D4DCEC",
-  // direction: "rtl",
-  // textAlign: "right",
-  // },
-  // "& .MuiInputBase-inputMultiline": {
-  // color: "#D4DCEC",
-  // direction: "rtl",
-  // textAlign: "right",
-  // },
 });
 
 interface ContactItem {
   Icon: typeof EmailOutlinedIcon;
-  // label: string;
   label: string;
   color: string;
   href?: string;
@@ -80,21 +67,18 @@ interface ContactItem {
 const contactInfo: ContactItem[] = [
   {
     Icon: EmailOutlinedIcon,
-    // label: "מייל",
     label: "770pituach@gmail.com",
     color: "#8578C4",
     href: "mailto:770pituach@gmail.com",
   },
   {
     Icon: WhatsAppIcon,
-    // label: "וואצאפ",
     label: "זמין בהודעה",
     color: "#25D366",
     href: "https://wa.me/18566778770/?text=*פיתוח%20770*%0Aשלום%20וברכה,%20רציתי%20לדעת:%20",
   },
   {
     Icon: AccessTimeIcon,
-    // label: "זמן תגובה",
     label: "זמינות גבוהה",
     color: "#C48A78",
   },
@@ -110,6 +94,7 @@ const ContactForm: FC = () => {
     "idle" | "loading" | "success" | "error"
   >("idle");
   const [focused, setFocused] = useState<string | null>(null);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -121,6 +106,7 @@ const ContactForm: FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("loading");
+    setErrorMessage(""); // איפוס שגיאה קודמת
 
     try {
       const res = await fetch(`${import.meta.env.VITE_API_URL}/api/contact`, {
@@ -128,14 +114,25 @@ const ContactForm: FC = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
       });
-      if (!res.ok) throw new Error();
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.message || "משהו השתבש, נסה שוב מאוחר יותר");
+      }
+
       setStatus("success");
       setForm({ name: "", email: "", message: "" });
-    } catch {
+    } catch (err: unknown) {
       setStatus("error");
+
+      if (err instanceof Error) {
+        setErrorMessage(err.message);
+      } else {
+        setErrorMessage("חלה שגיאה בלתי צפויה");
+      }
     }
   };
-
   return (
     <Box
       id="contact"
@@ -322,6 +319,7 @@ const ContactForm: FC = () => {
               severity="success"
               sx={{
                 mb: 3,
+                gap: 1,
                 background: "rgba(80, 160, 120, 0.08)",
                 border: "1px solid rgba(80, 160, 120, 0.22)",
                 color: "#5AA880",
@@ -338,6 +336,7 @@ const ContactForm: FC = () => {
               severity="error"
               sx={{
                 mb: 3,
+                gap: 1,
                 background: "rgba(180, 80, 80, 0.08)",
                 border: "1px solid rgba(180, 80, 80, 0.22)",
                 color: "#C08080",
@@ -345,7 +344,7 @@ const ContactForm: FC = () => {
                 "& .MuiAlert-icon": { color: "#C08080" },
               }}
             >
-              שגיאה בשליחה — נסה שוב.
+              {errorMessage ?? "שגיאה בשליחה — נסה שוב."}
             </Alert>
           )}
 
