@@ -24,7 +24,6 @@ const corsOptions: CorsOptionsDelegate = (req, cb) => {
       credentials: false,
     });
   }
-
   return cb(null, {
     origin: true,
     credentials: true,

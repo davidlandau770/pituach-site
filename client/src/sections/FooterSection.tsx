@@ -4,14 +4,13 @@ import { Box, Typography } from "@mui/material";
 const FooterSection: FC = () => (
   <Box
     sx={{
-      py: 4,
+      py: 3,
       px: { xs: 3, md: 6 },
       borderTop: "1px solid rgba(100, 90, 155, 0.1)",
       display: "flex",
       alignItems: "center",
       justifyContent: "space-between",
       flexWrap: "wrap",
-      gap: 2,
     }}
   >
     <Box sx={{ display: "flex", alignItems: "center", gap: 1.5 }}>
@@ -32,12 +31,14 @@ const FooterSection: FC = () => (
         770
       </Box>
       <Typography sx={{ color: "#2E3A50", fontSize: "0.82rem" }}>
-        © 2025 פיתוח 770 — כל הזכויות שמורות
+        © כל הזכויות שמורות — 2025
       </Typography>
     </Box>
-    <Typography sx={{ color: "#2E3A50", fontSize: "0.82rem" }}>
-      נבנה עם ❤️ ו-React
-    </Typography>
+    <Box sx={{ display: "flex", alignItems: "center", gap: 0.8 }}>
+      <Typography sx={{ color: "#2E3A50", fontSize: "0.82rem" }}>
+        נבנה על ידי פיתוח 770
+      </Typography>
+    </Box>
   </Box>
 );
 

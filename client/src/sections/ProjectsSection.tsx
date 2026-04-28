@@ -1,15 +1,21 @@
 import { type FC, useState } from "react";
 import { Box, Typography, Container, Grid, Chip } from "@mui/material";
+import type { SvgIconProps } from "@mui/material";
+import type { ElementType } from "react";
 import SectionHeader from "../components/SectionHeader";
 import { PROJECTS } from "../data/portfolioData";
 import { useInView } from "../hooks/useInView";
 
-const ProjectCard: FC<{ project: (typeof PROJECTS)[number]; delay: number }> = ({
-  project,
-  delay,
-}) => {
+const sectionMask =
+  "linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%)";
+
+const ProjectCard: FC<{
+  project: (typeof PROJECTS)[number];
+  delay: number;
+}> = ({ project, delay }) => {
   const { ref, inView } = useInView(0.18);
   const [hovered, setHovered] = useState(false);
+  const Icon = project.icon as ElementType<SvgIconProps>;
 
   return (
     <Box
@@ -24,7 +30,9 @@ const ProjectCard: FC<{ project: (typeof PROJECTS)[number]; delay: number }> = (
         backdropFilter: "blur(20px)",
         opacity: inView ? 1 : 0,
         transform: inView
-          ? hovered ? "translateY(-9px)" : "translateY(0)"
+          ? hovered
+            ? "translateY(-9px)"
+            : "translateY(0)"
           : "translateY(40px)",
         transition: `opacity 0.65s ease ${delay}ms, transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease`,
         boxShadow: hovered
@@ -35,7 +43,6 @@ const ProjectCard: FC<{ project: (typeof PROJECTS)[number]; delay: number }> = (
         flexDirection: "column",
       }}
     >
-      {/* Visual header */}
       <Box
         sx={{
           height: 180,
@@ -58,7 +65,6 @@ const ProjectCard: FC<{ project: (typeof PROJECTS)[number]; delay: number }> = (
             backgroundSize: "28px 28px",
           }}
         />
-
         {hovered && (
           <Box
             sx={{
@@ -66,12 +72,12 @@ const ProjectCard: FC<{ project: (typeof PROJECTS)[number]; delay: number }> = (
               left: 0,
               right: 0,
               height: "1.5px",
-              background: "linear-gradient(90deg, transparent, rgba(160, 140, 220, 0.5), transparent)",
+              background:
+                "linear-gradient(90deg, transparent, rgba(160, 140, 220, 0.5), transparent)",
               animation: "scanLine 1.8s linear infinite",
             }}
           />
         )}
-
         <Box
           sx={{
             width: 68,
@@ -83,22 +89,35 @@ const ProjectCard: FC<{ project: (typeof PROJECTS)[number]; delay: number }> = (
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            fontSize: "2.1rem",
             transition: "transform 0.4s ease",
             transform: hovered ? "scale(1.1) rotate(4deg)" : "scale(1)",
             zIndex: 1,
           }}
         >
-          {project.icon}
+          <Icon sx={{ fontSize: "2rem", color: "rgba(255,255,255,0.8)" }} />
         </Box>
       </Box>
 
-      {/* Content */}
       <Box sx={{ p: 3, flex: 1, display: "flex", flexDirection: "column" }}>
-        <Typography sx={{ fontSize: "1.05rem", fontWeight: 700, color: "#D4DCEC", mb: 1.5 }}>
+        <Typography
+          sx={{
+            fontSize: "1.05rem",
+            fontWeight: 700,
+            color: "#D4DCEC",
+            mb: 1.5,
+          }}
+        >
           {project.title}
         </Typography>
-        <Typography sx={{ color: "#5C6A80", fontSize: "0.88rem", lineHeight: 1.75, mb: 2.5, flex: 1 }}>
+        <Typography
+          sx={{
+            color: "#5C6A80",
+            fontSize: "0.88rem",
+            lineHeight: 1.75,
+            mb: 2.5,
+            flex: 1,
+          }}
+        >
           {project.description}
         </Typography>
         <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.7 }}>
@@ -123,8 +142,82 @@ const ProjectCard: FC<{ project: (typeof PROJECTS)[number]; delay: number }> = (
 };
 
 const ProjectsSection: FC = () => (
-  <Box id="projects" sx={{ py: { xs: 10, md: 16 } }}>
-    <Container maxWidth="lg">
+  <Box
+    id="projects"
+    sx={{ py: { xs: 5, md: 16 }, position: "relative", overflow: "hidden" }}
+  >
+    {/* Subtle grid */}
+    <Box
+      sx={{
+        position: "absolute",
+        inset: 0,
+        backgroundImage: `
+          linear-gradient(rgba(100, 90, 160, 0.04) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(100, 90, 160, 0.04) 1px, transparent 1px)
+        `,
+        backgroundSize: "50px 50px",
+        maskImage: sectionMask,
+        WebkitMaskImage: sectionMask,
+        animation: "gridBreathe 14s ease-in-out infinite",
+        pointerEvents: "none",
+      }}
+    />
+
+    {/* Spotlight top-center — masked */}
+    <Box
+      sx={{
+        position: "absolute",
+        top: "18%",
+        left: "50%",
+        transform: "translateX(-50%)",
+        width: { xs: 200, md: 380 },
+        height: { xs: 280, md: 480 },
+        background:
+          "radial-gradient(ellipse 45% 100% at 50% 20%, rgba(90, 150, 200, 0.15), transparent 80%)",
+        filter: "blur(25px)",
+        maskImage: sectionMask,
+        WebkitMaskImage: sectionMask,
+        pointerEvents: "none",
+      }}
+    />
+
+    {/* Spotlight bottom-right — masked */}
+    <Box
+      sx={{
+        position: "absolute",
+        bottom: "18%",
+        right: "15%",
+        width: { xs: 160, md: 300 },
+        height: { xs: 220, md: 380 },
+        background:
+          "radial-gradient(ellipse 50% 80% at 70% 70%, rgba(120, 80, 200, 0.13), transparent 80%)",
+        filter: "blur(22px)",
+        maskImage: sectionMask,
+        WebkitMaskImage: sectionMask,
+        pointerEvents: "none",
+      }}
+    />
+
+    {/* Floating orb */}
+    <Box
+      sx={{
+        position: "absolute",
+        top: "25%",
+        right: "-5%",
+        width: { xs: 240, md: 440 },
+        height: { xs: 240, md: 440 },
+        borderRadius: "50%",
+        background:
+          "radial-gradient(circle, rgba(95, 78, 190, 0.08), transparent 70%)",
+        filter: "blur(80px)",
+        maskImage: sectionMask,
+        WebkitMaskImage: sectionMask,
+        animation: "orbMove4 26s ease-in-out infinite",
+        pointerEvents: "none",
+      }}
+    />
+
+    <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
       <SectionHeader
         badge="הפרויקטים שלנו"
         title="עבודות שמדברות בעד עצמן"

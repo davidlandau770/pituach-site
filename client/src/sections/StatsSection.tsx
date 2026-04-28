@@ -1,13 +1,18 @@
 import { type FC, useState, useEffect } from "react";
 import { Box, Typography, Container, Grid } from "@mui/material";
+import type { SvgIconProps } from "@mui/material";
+import type { ElementType } from "react";
 import { STATS } from "../data/portfolioData";
 import { useInView } from "../hooks/useInView";
 import { useCountUp } from "../hooks/useCountUp";
+
+const sectionMask = "linear-gradient(to bottom, transparent 0%, black 14%, black 86%, transparent 100%)";
 
 const StatItem: FC<{ stat: (typeof STATS)[number]; delay: number }> = ({ stat, delay }) => {
   const { ref, inView } = useInView(0.3);
   const [started, setStarted] = useState(false);
   const count = useCountUp(stat.number, 2000, started);
+  const Icon = stat.icon as ElementType<SvgIconProps>;
 
   useEffect(() => {
     if (!inView) return;
@@ -26,7 +31,17 @@ const StatItem: FC<{ stat: (typeof STATS)[number]; delay: number }> = ({ stat, d
         transition: `opacity 0.6s ease ${delay}ms, transform 0.6s ease ${delay}ms`,
       }}
     >
-      <Typography sx={{ fontSize: "2rem", mb: 1 }}>{stat.icon}</Typography>
+      <Box sx={{ display: "flex", justifyContent: "center", mb: 1.5 }}>
+        <Icon
+          sx={{
+            fontSize: "2rem",
+            background: "linear-gradient(135deg, #A49AC8, #7DC3DC)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            backgroundClip: "text",
+          }}
+        />
+      </Box>
       <Typography
         sx={{
           fontSize: { xs: "2.6rem", md: "3.4rem" },
@@ -53,12 +68,62 @@ const StatsSection: FC = () => (
   <Box
     sx={{
       py: { xs: 8, md: 11 },
+      /* Restore original background, faded at edges instead of hard border */
       background: "linear-gradient(135deg, rgba(90, 78, 160, 0.06), rgba(50, 120, 170, 0.04))",
-      borderTop: "1px solid rgba(100, 90, 155, 0.08)",
-      borderBottom: "1px solid rgba(100, 90, 155, 0.08)",
+      maskImage: sectionMask,
+      WebkitMaskImage: sectionMask,
+      position: "relative",
+      overflow: "hidden",
     }}
   >
-    <Container maxWidth="lg">
+    {/* Center spotlight — masked so it never reaches section edges */}
+    <Box
+      sx={{
+        position: "absolute",
+        top: "50%",
+        left: "50%",
+        transform: "translate(-50%, -50%)",
+        width: { xs: 280, md: 520 },
+        height: { xs: 200, md: 360 },
+        background: "radial-gradient(ellipse 70% 50% at 50% 50%, rgba(120, 90, 210, 0.14), transparent 75%)",
+        filter: "blur(30px)",
+        maskImage: sectionMask,
+        WebkitMaskImage: sectionMask,
+        pointerEvents: "none",
+      }}
+    />
+
+    {/* Side spotlights */}
+    <Box
+      sx={{
+        position: "absolute",
+        top: "20%",
+        left: "5%",
+        width: { xs: 100, md: 200 },
+        height: { xs: 160, md: 280 },
+        background: "radial-gradient(ellipse 60% 80% at 20% 50%, rgba(50, 130, 180, 0.14), transparent 80%)",
+        filter: "blur(20px)",
+        maskImage: sectionMask,
+        WebkitMaskImage: sectionMask,
+        pointerEvents: "none",
+      }}
+    />
+    <Box
+      sx={{
+        position: "absolute",
+        top: "20%",
+        right: "5%",
+        width: { xs: 100, md: 200 },
+        height: { xs: 160, md: 280 },
+        background: "radial-gradient(ellipse 60% 80% at 80% 50%, rgba(130, 100, 200, 0.12), transparent 80%)",
+        filter: "blur(20px)",
+        maskImage: sectionMask,
+        WebkitMaskImage: sectionMask,
+        pointerEvents: "none",
+      }}
+    />
+
+    <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
       <Grid container>
         {STATS.map((stat, i) => (
           <Grid item xs={6} md={3} key={i}>

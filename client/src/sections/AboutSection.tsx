@@ -1,6 +1,14 @@
 import { type FC, useEffect, useRef, useState } from "react";
 import { Box, Typography, Container, Grid } from "@mui/material";
+import BoltIcon from "@mui/icons-material/Bolt";
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import DevicesIcon from "@mui/icons-material/Devices";
+import HandshakeIcon from "@mui/icons-material/Handshake";
+import SettingsIcon from "@mui/icons-material/Settings";
 import { SKILLS } from "../data/portfolioData";
+
+const sectionMask =
+  "linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%)";
 
 const SkillBar: FC<{
   name: string;
@@ -11,7 +19,9 @@ const SkillBar: FC<{
 }> = ({ name, level, color, delay, inView }) => (
   <Box sx={{ mb: 3 }}>
     <Box sx={{ display: "flex", justifyContent: "space-between", mb: 1 }}>
-      <Typography sx={{ color: "#C4D0E4", fontSize: "0.88rem", fontWeight: 600 }}>
+      <Typography
+        sx={{ color: "#C4D0E4", fontSize: "0.88rem", fontWeight: 600 }}
+      >
         {name}
       </Typography>
       <Typography sx={{ color, fontSize: "0.88rem", fontWeight: 700 }}>
@@ -39,7 +49,8 @@ const SkillBar: FC<{
             content: '""',
             position: "absolute",
             inset: 0,
-            background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent)",
+            background:
+              "linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent)",
             animation: inView ? `shimmer 1.5s ease ${delay}ms 1` : "none",
           },
         }}
@@ -47,6 +58,29 @@ const SkillBar: FC<{
     </Box>
   </Box>
 );
+
+const features = [
+  {
+    Icon: BoltIcon,
+    text: "ביצועים מהירים — עומד בעומסים של מאות משתמשים במקביל",
+    color: "#A49AC8",
+  },
+  {
+    Icon: LockOutlinedIcon,
+    text: "אבטחה ברמה הגבוהה ביותר בכל שלב בפיתוח",
+    color: "#5BA3C0",
+  },
+  {
+    Icon: DevicesIcon,
+    text: "תמיד רספונסיבי — מנייד ועד דסקטופ בצורה מושלמת",
+    color: "#7EAF8A",
+  },
+  {
+    Icon: HandshakeIcon,
+    text: "ליווי אישי מלא — לא נעלמים אחרי הלאונץ'",
+    color: "#C48A78",
+  },
+];
 
 const AboutSection: FC = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -62,7 +96,7 @@ const AboutSection: FC = () => {
           obs.disconnect();
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
     obs.observe(el);
     return () => obs.disconnect();
@@ -73,18 +107,91 @@ const AboutSection: FC = () => {
       id="about"
       ref={ref}
       sx={{
-        py: { xs: 10, md: 16 },
+        py: { xs: 5, md: 16 },
+        /* Restore original subtle background, faded at edges instead of hard border */
         background: "rgba(14, 19, 35, 0.4)",
-        borderTop: "1px solid rgba(100, 90, 155, 0.08)",
-        borderBottom: "1px solid rgba(100, 90, 155, 0.08)",
+        maskImage: sectionMask,
+        WebkitMaskImage: sectionMask,
+        position: "relative",
+        overflow: "hidden",
       }}
     >
-      <Container maxWidth="lg">
-        <Grid container spacing={{ xs: 6, md: 10 }} alignItems="center">
+      {/* Spotlight top-left — masked so it doesn't bleed */}
+      <Box
+        sx={{
+          position: "absolute",
+          top: "18%",
+          left: "8%",
+          width: { xs: 180, md: 320 },
+          height: { xs: 260, md: 460 },
+          background:
+            "radial-gradient(ellipse 50% 90% at 20% 30%, rgba(95, 78, 190, 0.16), transparent 80%)",
+          filter: "blur(25px)",
+          maskImage: sectionMask,
+          WebkitMaskImage: sectionMask,
+          pointerEvents: "none",
+        }}
+      />
 
-          {/* Text column */}
+      {/* Spotlight bottom-right — masked */}
+      <Box
+        sx={{
+          position: "absolute",
+          bottom: "18%",
+          right: "10%",
+          width: { xs: 160, md: 280 },
+          height: { xs: 220, md: 380 },
+          background:
+            "radial-gradient(ellipse 50% 80% at 80% 70%, rgba(50, 130, 180, 0.13), transparent 80%)",
+          filter: "blur(22px)",
+          maskImage: sectionMask,
+          WebkitMaskImage: sectionMask,
+          pointerEvents: "none",
+        }}
+      />
+
+      {/* Floating orbs — masked */}
+      <Box
+        sx={{
+          position: "absolute",
+          top: "15%",
+          right: "-5%",
+          width: { xs: 260, md: 500 },
+          height: { xs: 260, md: 500 },
+          borderRadius: "50%",
+          background:
+            "radial-gradient(circle, rgba(95, 78, 190, 0.08), transparent 70%)",
+          filter: "blur(90px)",
+          maskImage: sectionMask,
+          WebkitMaskImage: sectionMask,
+          animation: "orbMove1 30s ease-in-out infinite",
+          pointerEvents: "none",
+        }}
+      />
+      <Box
+        sx={{
+          position: "absolute",
+          bottom: "15%",
+          left: "-8%",
+          width: { xs: 220, md: 440 },
+          height: { xs: 220, md: 440 },
+          borderRadius: "50%",
+          background:
+            "radial-gradient(circle, rgba(50, 130, 180, 0.07), transparent 70%)",
+          filter: "blur(80px)",
+          maskImage: sectionMask,
+          WebkitMaskImage: sectionMask,
+          animation: "orbMove2 36s ease-in-out infinite",
+          pointerEvents: "none",
+        }}
+      />
+
+      <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
+        <Grid container spacing={{ xs: 6, md: 10 }} alignItems="center">
           <Grid
-            item xs={12} md={6}
+            item
+            xs={12}
+            md={6}
             sx={{
               opacity: inView ? 1 : 0,
               transform: inView ? "translateX(0)" : "translateX(36px)",
@@ -102,7 +209,14 @@ const AboutSection: FC = () => {
                 mb: 3,
               }}
             >
-              <Typography sx={{ color: "#9A90C8", fontSize: "0.82rem", fontWeight: 600, letterSpacing: 1 }}>
+              <Typography
+                sx={{
+                  color: "#9A90C8",
+                  fontSize: "0.82rem",
+                  fontWeight: 600,
+                  letterSpacing: 1,
+                }}
+              >
                 עלינו
               </Typography>
             </Box>
@@ -132,23 +246,33 @@ const AboutSection: FC = () => {
               </Box>
             </Typography>
 
-            <Typography sx={{ color: "#4E5E78", lineHeight: 1.9, mb: 3, fontSize: "0.97rem" }}>
-              פיתוח 770 היא בית תוכנה שמאמין שקוד טוב הוא קוד שמשרת את הלקוח. אנחנו
-              לא בונים "עוד אתר" — אנחנו בונים כלים שמשנים את האופן שבו עסקים עובדים.
+            <Typography
+              sx={{
+                color: "#4E5E78",
+                lineHeight: 1.9,
+                mb: 3,
+                fontSize: "0.97rem",
+              }}
+            >
+              פיתוח 770 היא בית תוכנה שמאמין שקוד טוב הוא קוד שמשרת את הלקוח.
+              אנחנו לא בונים "עוד אתר" — אנחנו בונים כלים שמשנים את האופן שבו
+              עסקים עובדים.
             </Typography>
 
-            <Typography sx={{ color: "#4E5E78", lineHeight: 1.9, mb: 4, fontSize: "0.97rem" }}>
-              עם יותר מ-5 שנות ניסיון בפיתוח Full-Stack, טיפלנו בכל דבר מאפליקציות
-              סטארטאפ קטנות ועד מערכות ארגוניות מורכבות. כל פרויקט מקבל את מלוא
-              תשומת הלב שלנו.
+            <Typography
+              sx={{
+                color: "#4E5E78",
+                lineHeight: 1.9,
+                mb: 4,
+                fontSize: "0.97rem",
+              }}
+            >
+              עם יותר מ-5 שנות ניסיון בפיתוח Full-Stack, טיפלנו בכל דבר
+              מאפליקציות סטארטאפ קטנות ועד מערכות ארגוניות מורכבות. כל פרויקט
+              מקבל את מלוא תשומת הלב שלנו.
             </Typography>
 
-            {[
-              { icon: "⚡", text: "ביצועים מהירים — עומד בעומסים של מאות משתמשים במקביל" },
-              { icon: "🔒", text: "אבטחה ברמה הגבוהה ביותר בכל שלב בפיתוח" },
-              { icon: "📱", text: "תמיד רספונסיבי — מנייד ועד דסקטופ בצורה מושלמת" },
-              { icon: "🤝", text: "ליווי אישי מלא — לא נעלמים אחרי הלאונץ'" },
-            ].map((item, i) => (
+            {features.map(({ Icon, text, color }, i) => (
               <Box
                 key={i}
                 sx={{
@@ -171,22 +295,22 @@ const AboutSection: FC = () => {
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    fontSize: "0.95rem",
                     flexShrink: 0,
                   }}
                 >
-                  {item.icon}
+                  <Icon sx={{ fontSize: "1.1rem", color }} />
                 </Box>
                 <Typography sx={{ color: "#7A88A0", fontSize: "0.92rem" }}>
-                  {item.text}
+                  {text}
                 </Typography>
               </Box>
             ))}
           </Grid>
 
-          {/* Skills column */}
           <Grid
-            item xs={12} md={6}
+            item
+            xs={12}
+            md={6}
             sx={{
               opacity: inView ? 1 : 0,
               transform: inView ? "translateX(0)" : "translateX(-36px)",
@@ -202,9 +326,20 @@ const AboutSection: FC = () => {
                 backdropFilter: "blur(20px)",
               }}
             >
-              <Typography sx={{ fontSize: "1.05rem", fontWeight: 700, color: "#D4DCEC", mb: 4 }}>
-                ⚙️ מחסנית הטכנולוגיה שלנו
-              </Typography>
+              <Box
+                sx={{ display: "flex", alignItems: "center", gap: 1.5, mb: 4 }}
+              >
+                <SettingsIcon sx={{ fontSize: "1.1rem", color: "#9A90C8" }} />
+                <Typography
+                  sx={{
+                    fontSize: "1.05rem",
+                    fontWeight: 700,
+                    color: "#D4DCEC",
+                  }}
+                >
+                  מחסנית הטכנולוגיה שלנו
+                </Typography>
+              </Box>
               {SKILLS.map((skill, i) => (
                 <SkillBar
                   key={skill.name}

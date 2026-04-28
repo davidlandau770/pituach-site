@@ -2,7 +2,9 @@
   "permissions": {
     "allow": [
       "Bash(npm run *)",
-      "PowerShell(Get-ChildItem \"C:\\\\Users\\\\avishay\\\\OneDrive\\\\שולחן העבודה\\\\עבודות\\\\תוכנה\\\\פיתוח תוכנה\\\\פרוייקטים\\\\פיתוח 770\\\\client\\\\src\" -Recurse -Name | Where-Object { $_ -notmatch \"node_modules\" })"
+      "PowerShell(Get-ChildItem \"C:\\\\Users\\\\avishay\\\\OneDrive\\\\שולחן העבודה\\\\עבודות\\\\תוכנה\\\\פיתוח תוכנה\\\\פרוייקטים\\\\פיתוח 770\\\\client\\\\src\" -Recurse -Name | Where-Object { $_ -notmatch \"node_modules\" })",
+      "Bash(del \"c:\\\\Users\\\\avishay\\\\OneDrive\\\\שולחן העבודה\\\\עבודות\\\\תוכנה\\\\פיתוח תוכנה\\\\פרוייקטים\\\\פיתוח 770\\\\client\\\\src\\\\data\\\\portfolioData.ts\")",
+      "Bash(npx tsc *)"
     ]
   }
 }

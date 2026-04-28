@@ -8,6 +8,11 @@ import {
   CircularProgress,
   Container,
 } from "@mui/material";
+import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import AccessTimeIcon from "@mui/icons-material/AccessTime";
+import SendIcon from "@mui/icons-material/Send";
+import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import SectionHeader from "./SectionHeader";
 
 interface FormData {
@@ -35,16 +40,65 @@ const fieldSx = (focused: string | null, name: string) => ({
     },
     "&.Mui-focused fieldset": {
       borderColor: "#7266B0 !important",
-      boxShadow: "0 0 0 3px rgba(110, 95, 175, 0.1)",
+      // boxShadow: "0 0 0 3px rgba(110, 95, 175, 0.1)",
     },
   },
   "& .MuiInputLabel-root": {
     color: "#3D4A60",
+    // left: "auto",
+    right: 30,
+    transformOrigin: "top right",
     "&.Mui-focused": { color: "#9A90C8" },
+    "&.MuiInputLabel-shrink": {
+      transform: "translate(0, -9px) scale(0.75)",
+      right: 15,
+    },
   },
-  "& .MuiOutlinedInput-input": { color: "#D4DCEC" },
-  "& .MuiInputBase-inputMultiline": { color: "#D4DCEC" },
+  "& .MuiOutlinedInput-notchedOutline legend": {
+    textAlign: "right",
+  },
+  // "& .MuiOutlinedInput-input": {
+  // color: "#D4DCEC",
+  // direction: "rtl",
+  // textAlign: "right",
+  // },
+  // "& .MuiInputBase-inputMultiline": {
+  // color: "#D4DCEC",
+  // direction: "rtl",
+  // textAlign: "right",
+  // },
 });
+
+interface ContactItem {
+  Icon: typeof EmailOutlinedIcon;
+  // label: string;
+  label: string;
+  color: string;
+  href?: string;
+}
+
+const contactInfo: ContactItem[] = [
+  {
+    Icon: EmailOutlinedIcon,
+    // label: "מייל",
+    label: "770pituach@gmail.com",
+    color: "#8578C4",
+    href: "mailto:770pituach@gmail.com",
+  },
+  {
+    Icon: WhatsAppIcon,
+    // label: "וואצאפ",
+    label: "זמין בהודעה",
+    color: "#25D366",
+    href: "https://wa.me/18566778770/?text=*פיתוח%20770*%0Aשלום%20וברכה,%20רציתי%20לדעת:%20",
+  },
+  {
+    Icon: AccessTimeIcon,
+    // label: "זמן תגובה",
+    label: "זמינות גבוהה",
+    color: "#C48A78",
+  },
+];
 
 const ContactForm: FC = () => {
   const [form, setForm] = useState<FormData>({
@@ -67,9 +121,14 @@ const ContactForm: FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("loading");
+
     try {
-      await new Promise((res) => setTimeout(res, 1200));
-      // await axios.post('/api/contact', form);
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/contact`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) throw new Error();
       setStatus("success");
       setForm({ name: "", email: "", message: "" });
     } catch {
@@ -78,12 +137,103 @@ const ContactForm: FC = () => {
   };
 
   return (
-    <Box id="contact" sx={{ py: { xs: 10, md: 16 } }}>
-      <Container maxWidth="md">
+    <Box
+      id="contact"
+      sx={{ py: { xs: 5, md: 16 }, position: "relative", overflow: "hidden" }}
+    >
+      {/* Section background with smooth fades */}
+      <Box
+        sx={{
+          position: "absolute",
+          inset: 0,
+          background:
+            "radial-gradient(ellipse 80% 60% at 50% 50%, rgba(90, 70, 160, 0.07), transparent 80%)",
+          maskImage:
+            "linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%)",
+          pointerEvents: "none",
+        }}
+      />
+
+      {/* Animated grid */}
+      <Box
+        sx={{
+          position: "absolute",
+          inset: 0,
+          backgroundImage: `
+            linear-gradient(rgba(100, 90, 160, 0.04) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(100, 90, 160, 0.04) 1px, transparent 1px)
+          `,
+          backgroundSize: "60px 60px",
+          maskImage:
+            "linear-gradient(to bottom, transparent 5%, black 15%, black 85%, transparent 95%)",
+          animation: "gridBreathe 12s ease-in-out infinite",
+          pointerEvents: "none",
+        }}
+      />
+
+      {/* Spotlights — masked to prevent bleeding at section edges */}
+      <Box
+        sx={{
+          position: "absolute",
+          top: "20%",
+          left: "50%",
+          transform: "translateX(-50%)",
+          width: { xs: 240, md: 420 },
+          height: { xs: 300, md: 500 },
+          background:
+            "radial-gradient(ellipse 55% 90% at 50% 30%, rgba(130, 100, 220, 0.14), transparent 80%)",
+          filter: "blur(25px)",
+          maskImage:
+            "linear-gradient(to bottom, transparent 0%, black 14%, black 86%, transparent 100%)",
+          WebkitMaskImage:
+            "linear-gradient(to bottom, transparent 0%, black 14%, black 86%, transparent 100%)",
+          pointerEvents: "none",
+        }}
+      />
+      <Box
+        sx={{
+          position: "absolute",
+          top: "10%",
+          right: "5%",
+          width: { xs: 240, md: 440 },
+          height: { xs: 240, md: 440 },
+          borderRadius: "50%",
+          background:
+            "radial-gradient(circle, rgba(95, 78, 190, 0.09), transparent 70%)",
+          filter: "blur(70px)",
+          maskImage:
+            "linear-gradient(to bottom, transparent 0%, black 14%, black 86%, transparent 100%)",
+          WebkitMaskImage:
+            "linear-gradient(to bottom, transparent 0%, black 14%, black 86%, transparent 100%)",
+          animation: "orbMove4 28s ease-in-out infinite",
+          pointerEvents: "none",
+        }}
+      />
+      <Box
+        sx={{
+          position: "absolute",
+          bottom: "10%",
+          left: "-5%",
+          width: { xs: 220, md: 420 },
+          height: { xs: 220, md: 420 },
+          borderRadius: "50%",
+          background:
+            "radial-gradient(circle, rgba(50, 130, 180, 0.08), transparent 70%)",
+          filter: "blur(70px)",
+          maskImage:
+            "linear-gradient(to bottom, transparent 0%, black 14%, black 86%, transparent 100%)",
+          WebkitMaskImage:
+            "linear-gradient(to bottom, transparent 0%, black 14%, black 86%, transparent 100%)",
+          animation: "orbMove2 32s ease-in-out infinite",
+          pointerEvents: "none",
+        }}
+      />
+
+      <Container maxWidth="md" sx={{ position: "relative", zIndex: 1 }}>
         <SectionHeader
           badge="צור קשר"
           title="יאללה, בואו נעשה משהו גדול"
-          subtitle="מוכנים להתחיל? השאירו פרטים ונחזור אליכם תוך 24 שעות."
+          subtitle="מוכנים להתחיל? השאירו פרטים ונחזור אליכם בהקדם."
         />
 
         <Box
@@ -108,31 +258,53 @@ const ContactForm: FC = () => {
               justifyContent: "center",
             }}
           >
-            {[
-              { icon: "📧", label: "מייל", value: "770pituach@gmail.com" },
-              { icon: "📞", label: "טלפון", value: "זמין לשיחה" },
-              { icon: "⏰", label: "זמן תגובה", value: "עד 24 שעות" },
-            ].map((item) => (
-              <Box key={item.label} sx={{ textAlign: "center" }}>
-                <Typography sx={{ fontSize: "1.3rem", mb: 0.4 }}>
-                  {item.icon}
-                </Typography>
-                <Typography
-                  sx={{ color: "#3D4A60", fontSize: "0.72rem", mb: 0.2 }}
+            {contactInfo.map(({ Icon, label, color, href }) => {
+              const content = (
+                <Box sx={{ textAlign: "center" }}>
+                  <Box
+                    sx={{ display: "flex", justifyContent: "center", mb: 0.6 }}
+                  >
+                    <Icon
+                      sx={{
+                        fontSize: "1.4rem",
+                        color,
+                        transition: "transform 0.2s ease",
+                      }}
+                    />
+                  </Box>
+                  <Typography
+                    sx={{ color: "#3D4A60", fontSize: "0.72rem", mb: 0.2 }}
+                  >
+                    {label}
+                  </Typography>
+                </Box>
+              );
+
+              return href ? (
+                <a
+                  key={label}
+                  href={href}
+                  target={href.startsWith("mailto:") ? "_self" : "_blank"}
+                  rel="noopener noreferrer"
+                  style={{ textDecoration: "none" }}
                 >
-                  {item.label}
-                </Typography>
-                <Typography
-                  sx={{
-                    color: "#7A88A0",
-                    fontSize: "0.85rem",
-                    fontWeight: 600,
-                  }}
-                >
-                  {item.value}
-                </Typography>
-              </Box>
-            ))}
+                  <Box
+                    sx={{
+                      cursor: "pointer",
+                      transition: "transform 0.2s ease",
+                      "&:hover": {
+                        transform: "translateY(-3px)",
+                        "& .MuiSvgIcon-root": { transform: "scale(1.15)" },
+                      },
+                    }}
+                  >
+                    {content}
+                  </Box>
+                </a>
+              ) : (
+                <Box key={label}>{content}</Box>
+              );
+            })}
           </Box>
 
           <Box
@@ -146,6 +318,7 @@ const ContactForm: FC = () => {
 
           {status === "success" && (
             <Alert
+              icon={<CheckCircleOutlineIcon sx={{ color: "#5AA880" }} />}
               severity="success"
               sx={{
                 mb: 3,
@@ -156,7 +329,7 @@ const ContactForm: FC = () => {
                 "& .MuiAlert-icon": { color: "#5AA880" },
               }}
             >
-              ✅ ההודעה נשלחה! נחזור אליך תוך 24 שעות.
+              ההודעה נשלחה! נחזור אליך תוך 24 שעות.
             </Alert>
           )}
 
@@ -226,6 +399,11 @@ const ContactForm: FC = () => {
             <Button
               type="submit"
               disabled={status === "loading"}
+              endIcon={
+                status !== "loading" ? (
+                  <SendIcon sx={{ transform: "scaleX(-1)", p: "1px" }} />
+                ) : undefined
+              }
               sx={{
                 py: 1.7,
                 borderRadius: "11px",
@@ -237,6 +415,7 @@ const ContactForm: FC = () => {
                 fontWeight: 700,
                 fontSize: "0.97rem",
                 textTransform: "none",
+                gap: 1.5,
                 boxShadow: "0 4px 18px rgba(90, 78, 165, 0.28)",
                 transition: "all 0.3s ease",
                 "&:hover:not(:disabled)": {
@@ -252,7 +431,7 @@ const ContactForm: FC = () => {
                   שולח...
                 </Box>
               ) : (
-                "🚀 שגר הודעה"
+                "שגר הודעה"
               )}
             </Button>
           </Box>

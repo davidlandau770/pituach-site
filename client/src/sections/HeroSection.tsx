@@ -1,5 +1,6 @@
 import { type FC } from "react";
 import { Box, Typography, Button, Chip, Container } from "@mui/material";
+import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
 import TypewriterText from "../components/TypewriterText";
 import { PARTICLES } from "../data/portfolioData";
 
@@ -18,7 +19,7 @@ const HeroSection: FC<Props> = ({ onScrollTo }) => {
         justifyContent: "center",
         position: "relative",
         overflow: "hidden",
-        pt: 10,
+        pt: 12,
       }}
     >
       {/* === ANIMATED GRID === */}
@@ -104,7 +105,7 @@ const HeroSection: FC<Props> = ({ onScrollTo }) => {
           pointerEvents: "none",
         }}
       />
-      {/* === ORB 4 — muted violet (new) === */}
+      {/* === ORB 4 — muted violet === */}
       <Box
         sx={{
           position: "absolute",
@@ -137,7 +138,7 @@ const HeroSection: FC<Props> = ({ onScrollTo }) => {
             borderRadius: "50px",
             border: "1px solid rgba(120, 108, 190, 0.25)",
             background: "rgba(90, 78, 165, 0.07)",
-            mb: 4,
+            mb: 6,
             backdropFilter: "blur(12px)",
             animation: "fadeInUp 0.8s ease both",
           }}
@@ -164,11 +165,16 @@ const HeroSection: FC<Props> = ({ onScrollTo }) => {
           </Typography>
         </Box>
 
-        {/* Main title — smaller than before */}
+        {/* Main title */}
         <Typography
           variant="h1"
           sx={{
-            fontSize: { xs: "3rem", sm: "4.2rem", md: "5.8rem", lg: "7rem" },
+            fontSize: {
+              xs: "2.5rem",
+              sm: "3.4rem",
+              md: "4.6rem",
+              lg: "5.6rem",
+            },
             fontWeight: 900,
             lineHeight: 1,
             mb: 3,
@@ -231,7 +237,9 @@ const HeroSection: FC<Props> = ({ onScrollTo }) => {
         >
           <Button
             onClick={() => onScrollTo("contact")}
+            startIcon={<RocketLaunchIcon />}
             sx={{
+              gap: 2,
               px: { xs: 4, md: 5.5 },
               py: { xs: 1.4, md: 1.8 },
               borderRadius: "50px",
@@ -248,7 +256,7 @@ const HeroSection: FC<Props> = ({ onScrollTo }) => {
               },
             }}
           >
-            🚀 בואו נדבר
+            בואו נדבר
           </Button>
           <Button
             onClick={() => onScrollTo("projects")}
@@ -323,25 +331,14 @@ const HeroSection: FC<Props> = ({ onScrollTo }) => {
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          gap: 0.8,
           opacity: 0.3,
           animation: "fadeInUp 1s ease 1.2s both",
         }}
       >
-        <Typography
-          sx={{
-            fontSize: "0.6rem",
-            color: "#344060",
-            letterSpacing: 3,
-            fontWeight: 600,
-          }}
-        >
-          SCROLL
-        </Typography>
         <Box
           sx={{
             width: 1.5,
-            height: 36,
+            height: 42,
             background: "linear-gradient(to bottom, #8578C4, transparent)",
             animation: "scrollBounce 1.6s ease-in-out infinite",
           }}
