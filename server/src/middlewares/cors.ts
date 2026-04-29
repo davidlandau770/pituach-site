@@ -1,33 +1,32 @@
-import cors, { CorsOptionsDelegate } from "cors";
+import { CorsOptionsDelegate } from "cors";
 import { CORS_WHITE_LIST } from "../helpers/environments";
 
 const corsOptions: CorsOptionsDelegate = (req, cb) => {
-  if (!CORS_WHITE_LIST) {
-    console.log("no env with CORS_WHITE_LIST", 500, "CORS ERROR");
-
-    return cb(null, {
-      origin: false,
-      credentials: false,
-    });
-  }
-
   const API = req.headers.origin;
-  const URLS: string[] = JSON.parse(CORS_WHITE_LIST);
 
-  const isExists = !!URLS.find((api) => api === API);
-
-  if (!isExists) {
-    console.log(`the api:${API} is an unauthorized API`, 403, "CORS ERROR");
-
-    return cb(null, {
-      origin: false,
-      credentials: false,
-    });
+  if (!CORS_WHITE_LIST) {
+    console.log("CORS ERROR: No whitelist defined");
+    return cb(null, { origin: false });
   }
-  return cb(null, {
-    origin: true,
-    credentials: true,
-  });
-};
 
-export default cors(corsOptions);
+  try {
+    const URLS: string[] = JSON.parse(CORS_WHITE_LIST);
+
+    const isExists =
+      API &&
+      URLS.some((url) => url.replace(/\/$/, "") === API.replace(/\/$/, ""));
+
+    if (isExists || !API) {
+      return cb(null, {
+        origin: true,
+        credentials: true,
+      });
+    }
+
+    console.log(`the api:${API} is an unauthorized API`, 403, "CORS ERROR");
+    return cb(null, { origin: false, credentials: false });
+  } catch (err) {
+    console.error("CORS JSON Parse Error", err);
+    return cb(null, { origin: false });
+  }
+};
