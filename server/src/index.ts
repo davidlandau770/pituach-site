@@ -7,6 +7,7 @@ import { PORT } from "./helpers/environments";
 const app = express();
 
 app.use((req, _, next) => {
+  console.log(req.method);
   console.log("1", req.path);
   next();
 });
