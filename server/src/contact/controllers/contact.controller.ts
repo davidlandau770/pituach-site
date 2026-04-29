@@ -4,6 +4,8 @@ import { sendContactEmailService } from "../services/contact.service";
 import { ContactFormBody } from "../types/contact.types";
 
 export const sendContactController = async (req: Request, res: Response) => {
+  console.log("5");
+
   try {
     const { name, email, message }: ContactFormBody = req.body;
 
