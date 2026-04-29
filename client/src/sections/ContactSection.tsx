@@ -67,13 +67,13 @@ interface ContactItem {
 const contactInfo: ContactItem[] = [
   {
     Icon: EmailOutlinedIcon,
-    label: "770pituach@gmail.com",
+    label: "Email",
     color: "#B0A0FF",
     href: "mailto:770pituach@gmail.com",
   },
   {
     Icon: WhatsAppIcon,
-    label: "זמין בהודעה",
+    label: "WhatsApp",
     color: "#4ADE80",
     href: "https://wa.me/18566778770/?text=*פיתוח%20770*%0Aשלום%20וברכה,%20רציתי%20לדעת:%20",
   },
@@ -109,7 +109,6 @@ const ContactSection: FC = () => {
     setErrorMessage("");
 
     try {
-      console.log("Full URL:", `${import.meta.env.VITE_API_URL}/api/contact`);
       const res = await fetch(`${import.meta.env.VITE_API_URL}/api/contact`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -330,7 +329,7 @@ const ContactSection: FC = () => {
                 "& .MuiAlert-icon": { color: "#5AA880" },
               }}
             >
-              ההודעה נשלחה! נחזור אליך תוך 24 שעות.
+              ההודעה נשלחה! נחזור אליך בהקדם.
             </Alert>
           )}
 

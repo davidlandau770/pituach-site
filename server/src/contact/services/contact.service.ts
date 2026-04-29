@@ -6,7 +6,6 @@ export const sendContactEmailService = async (
   email: string,
   message: string,
 ): Promise<void> => {
-  console.log({ message });
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailRegex.test(email)) {
     throw new CustomError("כתובת אימייל לא תקינה", 400, "VALIDATION");
@@ -22,7 +21,6 @@ export const sendContactEmailService = async (
     body: JSON.stringify({ name, email, message }),
     redirect: "follow",
   });
-  console.log({ name });
 
   const text = await res.text();
   if (!text.includes("success")) {
