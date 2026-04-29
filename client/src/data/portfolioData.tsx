@@ -77,13 +77,38 @@ export interface StatItem {
   suffix: string;
   label: string;
   icon: ElementType;
+  color: string;
 }
 
 export const STATS: StatItem[] = [
-  { number: 5, suffix: "+", label: "שנות ניסיון", icon: BoltIcon },
-  { number: 50, suffix: "+", label: "פרויקטים הושלמו", icon: RocketLaunchIcon },
-  { number: 100, suffix: "%", label: "שביעות רצון", icon: EmojiEventsIcon },
-  { number: 24, suffix: "/7", label: "תמיכה ומענה", icon: SupportAgentIcon },
+  {
+    number: 5,
+    suffix: "+",
+    label: "שנות ניסיון",
+    icon: BoltIcon,
+    color: "#C4A86A",
+  },
+  {
+    number: 50,
+    suffix: "+",
+    label: "פרויקטים הושלמו",
+    icon: RocketLaunchIcon,
+    color: "#7ABDD4",
+  },
+  {
+    number: 100,
+    suffix: "%",
+    label: "שביעות רצון",
+    icon: EmojiEventsIcon,
+    color: "#7DC49A",
+  },
+  {
+    number: 24,
+    suffix: "/7",
+    label: "תמיכה ומענה",
+    icon: SupportAgentIcon,
+    color: "#BBA0E0",
+  },
 ];
 
 export interface ProjectItem {
@@ -92,6 +117,7 @@ export interface ProjectItem {
   description: string;
   tech: string[];
   gradient: string;
+  color: string;
 }
 
 export const PROJECTS: ProjectItem[] = [
@@ -102,6 +128,7 @@ export const PROJECTS: ProjectItem[] = [
       "פלטפורמה מלאה לניהול שרשרת אספקה עם מעקב real-time, דשבורד ניהולי, ואינטגרציה למערכות ERP.",
     tech: ["React", "Node.js", "PostgreSQL", "WebSockets"],
     gradient: "linear-gradient(135deg, #12152A, #1A2045)",
+    color: "#8A9ECC",
   },
   {
     icon: GroupsIcon,
@@ -110,6 +137,7 @@ export const PROJECTS: ProjectItem[] = [
       "אפליקציה לבניית קהילות מקומיות עם צ'אט, ניהול אירועים, ומפת נקודות עניין חיה.",
     tech: ["React Native", "Expo", "Firebase", "Google Maps"],
     gradient: "linear-gradient(135deg, #0D1A28, #162438)",
+    color: "#7ABDD4",
   },
   {
     icon: AutoAwesomeIcon,
@@ -118,6 +146,7 @@ export const PROJECTS: ProjectItem[] = [
       "כלי לסנכרון ותמלול אוטומטי של שמע וטקסט בעברית, עם עורך חכם ואפשרות לייצוא מהיר.",
     tech: ["React", "Python", "Whisper AI", "FastAPI"],
     gradient: "linear-gradient(135deg, #0F1520, #1A1F35)",
+    color: "#BBA0E0",
   },
 ];
 
@@ -130,10 +159,14 @@ export const SKILLS = [
 ];
 
 export const PARTICLES = [
-  { id: 2, left: 18, delay: 8, dur: 23, size: 2 },
-  { id: 4, left: 32, delay: 6, dur: 21, size: 1 },
-  { id: 7, left: 53, delay: 3, dur: 22, size: 1 },
-  { id: 11, left: 81, delay: 11, dur: 23, size: 2 },
-  { id: 15, left: 43, delay: 10, dur: 17, size: 3 },
-  { id: 19, left: 35, delay: 15, dur: 16, size: 1 },
+  { id: 1,  left: 7,  delay: -5,  dur: 19, size: 3 },
+  { id: 2,  left: 14, delay: -2,  dur: 20, size: 5 },
+  { id: 3,  left: 24, delay: -9,  dur: 22, size: 2 },
+  { id: 4,  left: 36, delay: -7,  dur: 18, size: 3 },
+  { id: 5,  left: 46, delay: -13, dur: 21, size: 2 },
+  { id: 6,  left: 55, delay: -11, dur: 22, size: 6 },
+  { id: 7,  left: 63, delay: -4,  dur: 19, size: 2 },
+  { id: 8,  left: 73, delay: -16, dur: 23, size: 4 },
+  { id: 9,  left: 83, delay: -8,  dur: 20, size: 2 },
+  { id: 10, left: 92, delay: -15, dur: 21, size: 3 },
 ];

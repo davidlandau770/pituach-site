@@ -103,15 +103,16 @@ const ProjectCard: FC<{
           sx={{
             fontSize: "1.05rem",
             fontWeight: 700,
-            color: "#D4DCEC",
+            color: project.color,
             mb: 1.5,
+            textShadow: `0 0 10px ${project.color}50`,
           }}
         >
           {project.title}
         </Typography>
         <Typography
           sx={{
-            color: "#5C6A80",
+            color: "#B4C8DC",
             fontSize: "0.88rem",
             lineHeight: 1.75,
             mb: 2.5,
@@ -129,7 +130,7 @@ const ProjectCard: FC<{
               sx={{
                 background: "rgba(100, 90, 160, 0.1)",
                 border: "1px solid rgba(110, 100, 170, 0.2)",
-                color: "#9A90C8",
+                color: "#B8AAFF",
                 fontSize: "0.7rem",
                 height: 23,
               }}
@@ -144,7 +145,7 @@ const ProjectCard: FC<{
 const ProjectsSection: FC = () => (
   <Box
     id="projects"
-    sx={{ py: { xs: 5, md: 16 }, position: "relative", overflow: "hidden" }}
+    sx={{ py: { xs: 4, md: 11 }, position: "relative", overflow: "hidden" }}
   >
     <Box
       sx={{

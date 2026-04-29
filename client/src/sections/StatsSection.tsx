@@ -35,10 +35,8 @@ const StatItem: FC<{ stat: (typeof STATS)[number]; delay: number }> = ({ stat, d
         <Icon
           sx={{
             fontSize: "2rem",
-            background: "linear-gradient(135deg, #A49AC8, #7DC3DC)",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-            backgroundClip: "text",
+            color: stat.color,
+            filter: `drop-shadow(0 0 8px ${stat.color}70)`,
           }}
         />
       </Box>
@@ -46,10 +44,8 @@ const StatItem: FC<{ stat: (typeof STATS)[number]; delay: number }> = ({ stat, d
         sx={{
           fontSize: { xs: "2.6rem", md: "3.4rem" },
           fontWeight: 900,
-          background: "linear-gradient(135deg, #A49AC8, #7DC3DC)",
-          WebkitBackgroundClip: "text",
-          WebkitTextFillColor: "transparent",
-          backgroundClip: "text",
+          color: stat.color,
+          textShadow: `0 0 18px ${stat.color}60`,
           lineHeight: 1,
           mb: 1,
         }}
@@ -57,7 +53,7 @@ const StatItem: FC<{ stat: (typeof STATS)[number]; delay: number }> = ({ stat, d
         {count}
         {stat.suffix}
       </Typography>
-      <Typography sx={{ color: "#7A88A0", fontSize: "0.9rem", fontWeight: 500 }}>
+      <Typography sx={{ color: stat.color, fontSize: "0.9rem", fontWeight: 500, opacity: 0.72 }}>
         {stat.label}
       </Typography>
     </Box>
@@ -67,7 +63,7 @@ const StatItem: FC<{ stat: (typeof STATS)[number]; delay: number }> = ({ stat, d
 const StatsSection: FC = () => (
   <Box
     sx={{
-      py: { xs: 8, md: 11 },
+      py: { xs: 6, md: 9 },
       background: "linear-gradient(135deg, rgba(90, 78, 160, 0.06), rgba(50, 120, 170, 0.04))",
       maskImage: sectionMask,
       WebkitMaskImage: sectionMask,

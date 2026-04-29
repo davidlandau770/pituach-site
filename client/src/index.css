@@ -18,102 +18,268 @@ body {
 /* =================== ORB ANIMATIONS =================== */
 
 @keyframes orbMove1 {
-  0%   { transform: translate(0, 0) scale(1); }
-  20%  { transform: translate(70px, -90px) scale(1.12); }
-  45%  { transform: translate(-40px, -50px) scale(0.94); }
-  70%  { transform: translate(90px, 50px) scale(1.06); }
-  100% { transform: translate(0, 0) scale(1); }
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  20% {
+    transform: translate(70px, -90px) scale(1.12);
+  }
+
+  45% {
+    transform: translate(-40px, -50px) scale(0.94);
+  }
+
+  70% {
+    transform: translate(90px, 50px) scale(1.06);
+  }
+
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
 }
 
 @keyframes orbMove2 {
-  0%   { transform: translate(0, 0) scale(1); }
-  30%  { transform: translate(-80px, 70px) scale(0.9); }
-  60%  { transform: translate(60px, -60px) scale(1.12); }
-  100% { transform: translate(0, 0) scale(1); }
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  30% {
+    transform: translate(-80px, 70px) scale(0.9);
+  }
+
+  60% {
+    transform: translate(60px, -60px) scale(1.12);
+  }
+
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
 }
 
 @keyframes orbMove3 {
-  0%   { transform: translate(0, 0) scale(1); }
-  25%  { transform: translate(110px, 90px) scale(1.07); }
-  75%  { transform: translate(-90px, -35px) scale(0.94); }
-  100% { transform: translate(0, 0) scale(1); }
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  25% {
+    transform: translate(110px, 90px) scale(1.07);
+  }
+
+  75% {
+    transform: translate(-90px, -35px) scale(0.94);
+  }
+
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
 }
 
 @keyframes orbMove4 {
-  0%   { transform: translate(0, 0) scale(1); }
-  40%  { transform: translate(-60px, -80px) scale(1.1); }
-  80%  { transform: translate(80px, 40px) scale(0.92); }
-  100% { transform: translate(0, 0) scale(1); }
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  40% {
+    transform: translate(-60px, -80px) scale(1.1);
+  }
+
+  80% {
+    transform: translate(80px, 40px) scale(0.92);
+  }
+
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
 }
 
 /* =================== GRID =================== */
 
 @keyframes gridBreathe {
-  0%, 100% { opacity: 0.5; }
-  50%       { opacity: 0.9; }
+
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+
+  50% {
+    opacity: 0.9;
+  }
 }
 
 /* =================== HERO TEXT =================== */
 
 @keyframes gradientShift {
-  0%, 100% { background-position: 0% 50%; }
-  50%       { background-position: 100% 50%; }
+
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
 }
 
 @keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(40px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes titlePulse {
+  0%   { opacity: 1;    transform: scale(1); }
+  10%  { opacity: 0;    transform: scale(0.88); }
+  16%  { opacity: 0;    transform: scale(0.62); }
+  42%  { opacity: 1;    transform: scale(1.07); }
+  56%  { opacity: 1;    transform: scale(1); }
+  74%  { opacity: 0.72; transform: scale(0.96); }
+  100% { opacity: 1;    transform: scale(1); }
 }
 
 /* =================== PARTICLES =================== */
 
 @keyframes particleRise {
-  0%   { transform: translateY(0px) scale(0.7); opacity: 0; }
-  6%   { opacity: 0.55; }
-  88%  { opacity: 0.35; }
-  100% { transform: translateY(-105vh) scale(1.1); opacity: 0; }
+  0% {
+    transform: translateY(0px) scale(0.7);
+    opacity: 0;
+  }
+
+  6% {
+    opacity: 0.55;
+  }
+
+  88% {
+    opacity: 0.35;
+  }
+
+  100% {
+    transform: translateY(-105vh) scale(1.1);
+    opacity: 0;
+  }
 }
 
 /* =================== UI =================== */
 
 @keyframes blink {
-  0%, 100% { opacity: 1; }
-  50%       { opacity: 0; }
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
 }
 
 @keyframes pulse {
-  0%, 100% { transform: scale(1); opacity: 0.8; }
-  50%       { transform: scale(1.25); opacity: 1; }
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+
+  50% {
+    transform: scale(1.25);
+    opacity: 1;
+  }
 }
 
 @keyframes scrollBounce {
-  0%, 100% { transform: translateY(0); }
-  50%       { transform: translateY(10px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(10px);
+  }
 }
 
 @keyframes shimmer {
-  0%   { transform: translateX(-200%); }
-  100% { transform: translateX(200%); }
+  0% {
+    transform: translateX(-200%);
+  }
+
+  100% {
+    transform: translateX(200%);
+  }
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50%       { transform: translateY(-10px); }
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 @keyframes scanLine {
-  from { top: -5%; }
-  to   { top: 105%; }
+  from {
+    top: -5%;
+  }
+
+  to {
+    top: 105%;
+  }
 }
 
 /* =================== SCROLLBAR =================== */
 
-::-webkit-scrollbar { width: 4px; }
-::-webkit-scrollbar-track { background: #090D1A; }
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: #090D1A;
+}
+
 ::-webkit-scrollbar-thumb {
   background: rgba(120, 108, 190, 0.35);
   border-radius: 2px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(120, 108, 190, 0.6);
+}
+
+/* =================== ACCESSIBILITY =================== */
+
+html.a11y-large-text {
+  font-size: 115%;
+}
+
+html.a11y-high-contrast {
+  filter: contrast(1.65) brightness(1.12);
+}
+
+html.a11y-grayscale {
+  filter: grayscale(1);
+}
+
+html.a11y-no-anim *,
+html.a11y-no-anim *::before,
+html.a11y-no-anim *::after {
+  animation-duration: 0.001ms !important;
+  animation-delay: 0.001ms !important;
+  transition-duration: 0.001ms !important;
+}
+
+html.a11y-links a,
+html.a11y-links button {
+  outline: 2px dashed #FFD700 !important;
+  outline-offset: 3px !important;
 }

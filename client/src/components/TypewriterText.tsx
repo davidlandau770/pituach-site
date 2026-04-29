@@ -37,7 +37,7 @@ const TypewriterText: FC = () => {
       <Box
         component="span"
         sx={{
-          background: "linear-gradient(90deg, #9A8FD8, #5BACC4)",
+          background: "linear-gradient(90deg, #F0C050, #E07840)",
           WebkitBackgroundClip: "text",
           WebkitTextFillColor: "transparent",
           backgroundClip: "text",
@@ -51,7 +51,7 @@ const TypewriterText: FC = () => {
           display: "inline-block",
           width: "2px",
           height: "0.82em",
-          background: "#8578C4",
+          background: "#F0C050",
           ml: "2px",
           verticalAlign: "text-bottom",
           animation: "blink 0.85s step-end infinite",

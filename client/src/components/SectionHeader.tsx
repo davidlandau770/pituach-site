@@ -27,7 +27,18 @@ const SectionHeader: FC<Props> = ({ badge, title, subtitle }) => {
           transition: "all 0.6s ease",
         }}
       >
-        <Typography sx={{ color: "#A49AC8", fontSize: "0.82rem", fontWeight: 600, letterSpacing: 1 }}>
+        <Typography
+          sx={{
+            background: "linear-gradient(90deg, #F0C050, #E07840)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            backgroundClip: "text",
+            fontSize: "0.82rem",
+            fontWeight: 600,
+            letterSpacing: 1,
+            filter: "drop-shadow(0 0 6px rgba(240, 192, 80, 0.4))",
+          }}
+        >
           {badge}
         </Typography>
       </Box>
@@ -37,11 +48,14 @@ const SectionHeader: FC<Props> = ({ badge, title, subtitle }) => {
         sx={{
           fontSize: { xs: "1.9rem", md: "2.7rem" },
           fontWeight: 800,
-          color: "#DCE3F0",
+          background: "linear-gradient(135deg, #F0ECE4 0%, #D0C8E8 55%, #A8C0D4 100%)",
+          WebkitBackgroundClip: "text",
+          WebkitTextFillColor: "transparent",
+          backgroundClip: "text",
           mb: 2,
           opacity: inView ? 1 : 0,
           transform: inView ? "translateY(0)" : "translateY(20px)",
-          transition: "all 0.6s ease 0.1s",
+          transition: "opacity 0.6s ease 0.1s, transform 0.6s ease 0.1s",
         }}
       >
         {title}
@@ -49,14 +63,19 @@ const SectionHeader: FC<Props> = ({ badge, title, subtitle }) => {
 
       <Typography
         sx={{
-          color: "#6B7A94",
+          background: "linear-gradient(120deg, #A8C4DC 0%, #C4B0F8 45%, #7EC8DC 100%)",
+          backgroundSize: "200% 200%",
+          WebkitBackgroundClip: "text",
+          WebkitTextFillColor: "transparent",
+          backgroundClip: "text",
+          animation: inView ? "gradientShift 8s ease infinite" : "none",
           fontSize: { xs: "0.95rem", md: "1.05rem" },
           maxWidth: 560,
           mx: "auto",
           lineHeight: 1.8,
           opacity: inView ? 1 : 0,
           transform: inView ? "translateY(0)" : "translateY(20px)",
-          transition: "all 0.6s ease 0.2s",
+          transition: "opacity 0.6s ease 0.2s, transform 0.6s ease 0.2s",
         }}
       >
         {subtitle}

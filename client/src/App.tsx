@@ -1,7 +1,7 @@
 import Portfolio from "./components/Portfolio";
 
-function App() {
+const App = () => {
   return <Portfolio />;
-}
+};
 
 export default App;

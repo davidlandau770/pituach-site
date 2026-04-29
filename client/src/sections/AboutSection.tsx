@@ -20,7 +20,7 @@ const SkillBar: FC<{
   <Box sx={{ mb: 3 }}>
     <Box sx={{ display: "flex", justifyContent: "space-between", mb: 1 }}>
       <Typography
-        sx={{ color: "#C4D0E4", fontSize: "0.88rem", fontWeight: 600 }}
+        sx={{ color, fontSize: "0.88rem", fontWeight: 600, opacity: 0.9 }}
       >
         {name}
       </Typography>
@@ -107,7 +107,7 @@ const AboutSection: FC = () => {
       id="about"
       ref={ref}
       sx={{
-        py: { xs: 5, md: 16 },
+        py: { xs: 4, md: 11 },
         background: "rgba(14, 19, 35, 0.4)",
         maskImage: sectionMask,
         WebkitMaskImage: sectionMask,
@@ -207,10 +207,14 @@ const AboutSection: FC = () => {
             >
               <Typography
                 sx={{
-                  color: "#9A90C8",
+                  background: "linear-gradient(90deg, #F0C050, #E07840)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text",
                   fontSize: "0.82rem",
                   fontWeight: 600,
                   letterSpacing: 1,
+                  filter: "drop-shadow(0 0 6px rgba(240, 192, 80, 0.4))",
                 }}
               >
                 עלינו
@@ -222,7 +226,10 @@ const AboutSection: FC = () => {
               sx={{
                 fontSize: { xs: "2rem", md: "2.7rem" },
                 fontWeight: 800,
-                color: "#DCE3F0",
+                background: "linear-gradient(135deg, #F0ECE4 0%, #D0C8E8 55%, #A8C0D4 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
                 mb: 3,
                 lineHeight: 1.2,
               }}
@@ -244,7 +251,7 @@ const AboutSection: FC = () => {
 
             <Typography
               sx={{
-                color: "#4E5E78",
+                color: "#B8CCE0",
                 lineHeight: 1.9,
                 mb: 3,
                 fontSize: "0.97rem",
@@ -257,7 +264,7 @@ const AboutSection: FC = () => {
 
             <Typography
               sx={{
-                color: "#4E5E78",
+                color: "#B8CCE0",
                 lineHeight: 1.9,
                 mb: 4,
                 fontSize: "0.97rem",
@@ -296,7 +303,7 @@ const AboutSection: FC = () => {
                 >
                   <Icon sx={{ fontSize: "1.1rem", color }} />
                 </Box>
-                <Typography sx={{ color: "#7A88A0", fontSize: "0.92rem" }}>
+                <Typography sx={{ color, fontSize: "0.92rem", opacity: 0.88 }}>
                   {text}
                 </Typography>
               </Box>

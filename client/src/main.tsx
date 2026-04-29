@@ -4,7 +4,7 @@ import App from "./App";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 const theme = createTheme({
-  direction: "rtl",
+  // direction: "rtl",
   typography: {
     fontFamily: "'Heebo', sans-serif",
   },
@@ -12,8 +12,6 @@ const theme = createTheme({
 
 createRoot(document.getElementById("root")!).render(
   <ThemeProvider theme={theme}>
-    <div dir="rtl">
-      <App />
-    </div>
+    <App />
   </ThemeProvider>,
 );

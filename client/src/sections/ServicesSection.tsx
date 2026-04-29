@@ -61,13 +61,19 @@ const ServiceCard: FC<{
       </Box>
 
       <Typography
-        sx={{ fontSize: "1.15rem", fontWeight: 700, color: "#D4DCEC", mb: 1.5 }}
+        sx={{
+          fontSize: "1.15rem",
+          fontWeight: 700,
+          color: service.color,
+          mb: 1.5,
+          textShadow: `0 0 12px ${service.color}50`,
+        }}
       >
         {service.title}
       </Typography>
 
       <Typography
-        sx={{ color: "#5C6A80", lineHeight: 1.8, mb: 3, fontSize: "0.93rem" }}
+        sx={{ color: "#B4C8DC", lineHeight: 1.8, mb: 3, fontSize: "0.93rem" }}
       >
         {service.description}
       </Typography>
@@ -88,7 +94,7 @@ const ServiceCard: FC<{
                 boxShadow: `0 0 5px ${service.color}70`,
               }}
             />
-            <Typography sx={{ color: "#7A88A0", fontSize: "0.85rem" }}>
+            <Typography sx={{ color: "#AABCCE", fontSize: "0.85rem" }}>
               {feature}
             </Typography>
           </Box>
@@ -102,7 +108,7 @@ const ServicesSection: FC = () => (
   <Box
     id="services"
     sx={{
-      py: { xs: 5, md: 16 },
+      py: { xs: 4, md: 11 },
       position: "relative",
       overflow: "hidden",
     }}

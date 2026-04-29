@@ -43,7 +43,7 @@ const fieldSx = (focused: string | null, name: string) => ({
     },
   },
   "& .MuiInputLabel-root": {
-    color: "#3D4A60",
+    color: "#7A8BA8",
     right: 30,
     transformOrigin: "top right",
     "&.Mui-focused": { color: "#9A90C8" },
@@ -68,19 +68,19 @@ const contactInfo: ContactItem[] = [
   {
     Icon: EmailOutlinedIcon,
     label: "770pituach@gmail.com",
-    color: "#8578C4",
+    color: "#B0A0FF",
     href: "mailto:770pituach@gmail.com",
   },
   {
     Icon: WhatsAppIcon,
     label: "זמין בהודעה",
-    color: "#25D366",
+    color: "#4ADE80",
     href: "https://wa.me/18566778770/?text=*פיתוח%20770*%0Aשלום%20וברכה,%20רציתי%20לדעת:%20",
   },
   {
     Icon: AccessTimeIcon,
     label: "זמינות גבוהה",
-    color: "#C48A78",
+    color: "#FFA07A",
   },
 ];
 
@@ -137,7 +137,7 @@ const ContactSection: FC = () => {
   return (
     <Box
       id="contact"
-      sx={{ py: { xs: 5, md: 16 }, position: "relative", overflow: "hidden" }}
+      sx={{ py: { xs: 4, md: 11 }, position: "relative", overflow: "hidden" }}
     >
       <Box
         sx={{
@@ -267,7 +267,12 @@ const ContactSection: FC = () => {
                     />
                   </Box>
                   <Typography
-                    sx={{ color: "#3D4A60", fontSize: "0.72rem", mb: 0.2 }}
+                    sx={{
+                      color,
+                      fontSize: "0.88rem",
+                      fontWeight: 500,
+                      mb: 0.2,
+                    }}
                   >
                     {label}
                   </Typography>

@@ -2,7 +2,6 @@ import { type FC } from "react";
 import { Box, Typography, Button, Chip, Container } from "@mui/material";
 import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
 import TypewriterText from "../components/TypewriterText";
-import { PARTICLES } from "../data/portfolioData";
 
 interface Props {
   onScrollTo: (id: string) => void;
@@ -38,22 +37,6 @@ const HeroSection: FC<Props> = ({ onScrollTo }) => {
         }}
       />
 
-      {PARTICLES.map((p) => (
-        <Box
-          key={p.id}
-          sx={{
-            position: "absolute",
-            bottom: "-20px",
-            left: `${p.left}%`,
-            width: p.size,
-            height: p.size,
-            borderRadius: "50%",
-            background: "rgba(180, 168, 220, 0.05)",
-            animation: `particleRise ${p.dur}s ease-in-out ${p.delay}s infinite`,
-            pointerEvents: "none",
-          }}
-        />
-      ))}
 
       <Box
         sx={{
@@ -66,7 +49,7 @@ const HeroSection: FC<Props> = ({ onScrollTo }) => {
           background:
             "radial-gradient(circle, rgba(95, 78, 190, 0.17), transparent 72%)",
           filter: "blur(70px)",
-          animation: "orbMove1 18s ease-in-out infinite",
+          animation: "orbMove1 18s ease-in-out -5s infinite",
           pointerEvents: "none",
         }}
       />
@@ -81,7 +64,7 @@ const HeroSection: FC<Props> = ({ onScrollTo }) => {
           background:
             "radial-gradient(circle, rgba(50, 130, 180, 0.14), transparent 72%)",
           filter: "blur(70px)",
-          animation: "orbMove2 22s ease-in-out infinite",
+          animation: "orbMove2 22s ease-in-out -9s infinite",
           pointerEvents: "none",
         }}
       />
@@ -96,7 +79,7 @@ const HeroSection: FC<Props> = ({ onScrollTo }) => {
           background:
             "radial-gradient(circle, rgba(180, 110, 80, 0.1), transparent 70%)",
           filter: "blur(55px)",
-          animation: "orbMove3 15s ease-in-out infinite",
+          animation: "orbMove3 15s ease-in-out -3s infinite",
           pointerEvents: "none",
         }}
       />
@@ -111,7 +94,7 @@ const HeroSection: FC<Props> = ({ onScrollTo }) => {
           background:
             "radial-gradient(circle, rgba(120, 80, 200, 0.1), transparent 70%)",
           filter: "blur(60px)",
-          animation: "orbMove4 25s ease-in-out infinite",
+          animation: "orbMove4 25s ease-in-out -12s infinite",
           pointerEvents: "none",
         }}
       />
@@ -133,6 +116,7 @@ const HeroSection: FC<Props> = ({ onScrollTo }) => {
             mb: 6,
             backdropFilter: "blur(12px)",
             animation: "fadeInUp 0.8s ease both",
+            mt: { xs: 0, md: 2 },
           }}
         >
           <Box
@@ -147,10 +131,11 @@ const HeroSection: FC<Props> = ({ onScrollTo }) => {
           />
           <Typography
             sx={{
-              color: "#9A90C8",
+              color: "#4ADE80",
               fontSize: "0.82rem",
               fontWeight: 600,
               letterSpacing: 0.5,
+              textShadow: "0 0 14px rgba(74, 222, 128, 0.55)",
             }}
           >
             זמינים לפרויקטים חדשים
@@ -168,16 +153,17 @@ const HeroSection: FC<Props> = ({ onScrollTo }) => {
             },
             fontWeight: 900,
             lineHeight: 1,
-            mb: 3,
             background:
-              "linear-gradient(135deg, #F0EEF8 0%, #C8C2E8 30%, #8D84C8 60%, #5BA3C0 100%)",
+              "linear-gradient(90deg, #F0C050, #E87840, #F8D060, #E07840)",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
             backgroundClip: "text",
             backgroundSize: "200% 200%",
             animation:
-              "gradientShift 7s ease infinite, fadeInUp 0.9s ease 0.1s both",
+              "gradientShift 3s ease infinite, fadeInUp 0.9s ease 0.1s both, titlePulse 5s ease 2s infinite",
             letterSpacing: "-0.02em",
+            mt: 2,
+            mb: 3,
           }}
         >
           פיתוח 770
@@ -192,7 +178,7 @@ const HeroSection: FC<Props> = ({ onScrollTo }) => {
             animation: "fadeInUp 0.9s ease 0.2s both",
           }}
         >
-          <Box component="span" sx={{ color: "#B8C4D8" }}>
+          <Box component="span" sx={{ color: "#C8D6EC" }}>
             אנחנו בונים{" "}
           </Box>
           <TypewriterText />
@@ -201,7 +187,7 @@ const HeroSection: FC<Props> = ({ onScrollTo }) => {
         <Typography
           sx={{
             fontSize: { xs: "0.95rem", md: "1.08rem" },
-            color: "#4E5E78",
+            color: "#B8CCE0",
             maxWidth: 560,
             mx: "auto",
             mb: 6,
@@ -252,16 +238,16 @@ const HeroSection: FC<Props> = ({ onScrollTo }) => {
               px: { xs: 4, md: 5.5 },
               py: { xs: 1.4, md: 1.8 },
               borderRadius: "50px",
-              border: "1px solid rgba(120, 108, 190, 0.3)",
-              color: "#9A90C8",
+              border: "1px solid rgba(77, 212, 172, 0.28)",
+              color: "#4DD4AC",
               fontWeight: 700,
               fontSize: { xs: "0.95rem", md: "1rem" },
               textTransform: "none",
-              background: "rgba(90, 80, 160, 0.05)",
+              background: "rgba(30, 140, 120, 0.05)",
               transition: "all 0.3s ease",
               "&:hover": {
-                background: "rgba(90, 80, 160, 0.12)",
-                borderColor: "rgba(120, 108, 190, 0.5)",
+                background: "rgba(30, 140, 120, 0.12)",
+                borderColor: "rgba(77, 212, 172, 0.5)",
                 transform: "translateY(-4px)",
               },
             }}
@@ -280,27 +266,27 @@ const HeroSection: FC<Props> = ({ onScrollTo }) => {
           }}
         >
           {[
-            "React",
-            "TypeScript",
-            "Node.js",
-            "PostgreSQL",
-            "React Native",
-            "Docker",
-          ].map((tech, i) => (
+            { label: "React",        color: "#82B8CC" },
+            { label: "TypeScript",   color: "#7EAF8A" },
+            { label: "Node.js",      color: "#C4A86A" },
+            { label: "PostgreSQL",   color: "#A49AC8" },
+            { label: "React Native", color: "#C08888" },
+            { label: "Docker",       color: "#7ABDD4" },
+          ].map(({ label, color }, i) => (
             <Chip
-              key={tech}
-              label={tech}
+              key={label}
+              label={label}
               sx={{
                 background: "rgba(14, 20, 36, 0.75)",
-                border: "1px solid rgba(100, 90, 155, 0.2)",
-                color: "#7A88A0",
+                border: `1px solid ${color}30`,
+                color,
                 fontSize: "0.78rem",
                 backdropFilter: "blur(10px)",
                 animation: `float ${3.2 + i * 0.4}s ease-in-out ${i * 0.25}s infinite`,
                 transition: "all 0.3s ease",
                 "&:hover": {
-                  borderColor: "rgba(120, 108, 190, 0.45)",
-                  color: "#A49AC8",
+                  borderColor: `${color}70`,
+                  color: "#E8E4F8",
                 },
               }}
             />
@@ -308,28 +294,6 @@ const HeroSection: FC<Props> = ({ onScrollTo }) => {
         </Box>
       </Container>
 
-      <Box
-        sx={{
-          position: "absolute",
-          bottom: 32,
-          left: "50%",
-          transform: "translateX(-50%)",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          opacity: 0.3,
-          animation: "fadeInUp 1s ease 1.2s both",
-        }}
-      >
-        <Box
-          sx={{
-            width: 1.5,
-            height: 42,
-            background: "linear-gradient(to bottom, #8578C4, transparent)",
-            animation: "scrollBounce 1.6s ease-in-out infinite",
-          }}
-        />
-      </Box>
     </Box>
   );
 };

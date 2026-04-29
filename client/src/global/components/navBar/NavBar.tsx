@@ -73,13 +73,13 @@ export default function NavBar({ scrolled }: { scrolled?: boolean }) {
             key={link.id}
             onClick={() => scrollTo(link.id)}
             sx={{
-              color: "#6B7A94",
+              color: "#A4B8CC",
               cursor: "pointer",
               fontSize: "0.9rem",
               fontWeight: 500,
               position: "relative",
               transition: "color 0.3s ease",
-              "&:hover": { color: "#C4D0E4" },
+              "&:hover": { color: "#C0B2FF" },
               "&::after": {
                 content: '""',
                 position: "absolute",
@@ -105,16 +105,16 @@ export default function NavBar({ scrolled }: { scrolled?: boolean }) {
           px: { xs: 2.5, md: 3.2 },
           py: 0.9,
           borderRadius: "50px",
-          background: "linear-gradient(135deg, #6B5FA8, #4A7AA8)",
-          color: "#E8E4F8",
+          background: "linear-gradient(135deg, #2E9A74, #1E8A9A)",
+          color: "#E8F8F0",
           fontWeight: 700,
           fontSize: "0.85rem",
           textTransform: "none",
-          boxShadow: "0 3px 14px rgba(90, 80, 165, 0.28)",
+          boxShadow: "0 3px 14px rgba(46, 154, 116, 0.28)",
           transition: "all 0.3s ease",
           "&:hover": {
             transform: "translateY(-2px)",
-            boxShadow: "0 7px 22px rgba(90, 80, 165, 0.42)",
+            boxShadow: "0 7px 22px rgba(46, 154, 116, 0.42)",
           },
         }}
       >
