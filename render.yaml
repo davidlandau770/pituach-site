@@ -9,6 +9,6 @@ services:
       - key: NODE_ENV
         value: production
       - key: CORS_WHITE_LIST
-        sync: false
+        value: '["https://pituach.vercel.app"]'
       - key: GOOGLE_SHEET_URL
         sync: false
