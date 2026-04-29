@@ -1,4 +1,4 @@
-import { CorsOptionsDelegate } from "cors";
+import cors, { CorsOptionsDelegate } from "cors";
 import { CORS_WHITE_LIST } from "../helpers/environments";
 
 const corsOptions: CorsOptionsDelegate = (req, cb) => {
@@ -12,11 +12,15 @@ const corsOptions: CorsOptionsDelegate = (req, cb) => {
   try {
     const URLS: string[] = JSON.parse(CORS_WHITE_LIST);
 
-    const isExists =
-      API &&
-      URLS.some((url) => url.replace(/\/$/, "") === API.replace(/\/$/, ""));
+    if (!API) {
+      return cb(null, { origin: true, credentials: true });
+    }
 
-    if (isExists || !API) {
+    const isExists = URLS.some(
+      (url) => url.replace(/\/$/, "") === API.replace(/\/$/, ""),
+    );
+
+    if (isExists) {
       return cb(null, {
         origin: true,
         credentials: true,
@@ -30,3 +34,5 @@ const corsOptions: CorsOptionsDelegate = (req, cb) => {
     return cb(null, { origin: false });
   }
 };
+
+export default cors(corsOptions);
