@@ -6,7 +6,15 @@ import { PORT } from "./helpers/environments";
 
 const app = express();
 
+app.use((req, _, next) => {
+  console.log("1", req.url);
+  next();
+});
 app.use(cors);
+app.use((req, _, next) => {
+  console.log("2");
+  next();
+});
 app.use(express.json());
 app.use(router);
 app.use(handleError);
