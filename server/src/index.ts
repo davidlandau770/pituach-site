@@ -16,6 +16,10 @@ app.use((req, _, next) => {
   next();
 });
 app.use(express.json());
+router.use((req, _, next) => {
+  console.log("3");
+  next();
+});
 app.use(router);
 app.use(handleError);
 
