@@ -5,7 +5,7 @@ import { useInView } from "../hooks/useInView";
 interface Props {
   badge: string;
   title: string;
-  subtitle: string;
+  subtitle?: string;
 }
 
 const SectionHeader: FC<Props> = ({ badge, title, subtitle }) => {
@@ -61,25 +61,27 @@ const SectionHeader: FC<Props> = ({ badge, title, subtitle }) => {
         {title}
       </Typography>
 
-      <Typography
-        sx={{
-          background: "linear-gradient(120deg, #A8C4DC 0%, #C4B0F8 45%, #7EC8DC 100%)",
-          backgroundSize: "200% 200%",
-          WebkitBackgroundClip: "text",
-          WebkitTextFillColor: "transparent",
-          backgroundClip: "text",
-          animation: inView ? "gradientShift 8s ease infinite" : "none",
-          fontSize: { xs: "0.95rem", md: "1.05rem" },
-          maxWidth: 560,
-          mx: "auto",
-          lineHeight: 1.8,
-          opacity: inView ? 1 : 0,
-          transform: inView ? "translateY(0)" : "translateY(20px)",
-          transition: "opacity 0.6s ease 0.2s, transform 0.6s ease 0.2s",
-        }}
-      >
-        {subtitle}
-      </Typography>
+      {subtitle && (
+        <Typography
+          sx={{
+            background: "linear-gradient(120deg, #A8C4DC 0%, #C4B0F8 45%, #7EC8DC 100%)",
+            backgroundSize: "200% 200%",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            backgroundClip: "text",
+            animation: inView ? "gradientShift 8s ease infinite" : "none",
+            fontSize: { xs: "0.95rem", md: "1.05rem" },
+            maxWidth: 560,
+            mx: "auto",
+            lineHeight: 1.8,
+            opacity: inView ? 1 : 0,
+            transform: inView ? "translateY(0)" : "translateY(20px)",
+            transition: "opacity 0.6s ease 0.2s, transform 0.6s ease 0.2s",
+          }}
+        >
+          {subtitle}
+        </Typography>
+      )}
     </Box>
   );
 };

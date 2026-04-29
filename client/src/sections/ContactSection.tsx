@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
-import AccessTimeIcon from "@mui/icons-material/AccessTime";
+import PhoneIcon from "@mui/icons-material/Phone";
 import SendIcon from "@mui/icons-material/Send";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import SectionHeader from "../components/SectionHeader";
@@ -78,9 +78,10 @@ const contactInfo: ContactItem[] = [
     href: "https://wa.me/18566778770/?text=*פיתוח%20770*%0Aשלום%20וברכה,%20רציתי%20לדעת:%20",
   },
   {
-    Icon: AccessTimeIcon,
-    label: "זמינות גבוהה",
+    Icon: PhoneIcon,
+    label: "דברו איתי",
     color: "#FFA07A",
+    href: "tel:0559194449",
   },
 ];
 
@@ -137,7 +138,7 @@ const ContactSection: FC = () => {
   return (
     <Box
       id="contact"
-      sx={{ py: { xs: 4, md: 11 }, position: "relative", overflow: "hidden" }}
+      sx={{ py: { xs: 4, md: 8 }, position: "relative", overflow: "hidden" }}
     >
       <Box
         sx={{

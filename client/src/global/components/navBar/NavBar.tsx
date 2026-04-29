@@ -27,7 +27,12 @@ export default function NavBar({ scrolled }: { scrolled?: boolean }) {
       {/* Logo */}
       <Box
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-        sx={{ display: "flex", alignItems: "center", gap: 1.5, cursor: "pointer" }}
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          gap: 1.5,
+          cursor: "pointer",
+        }}
       >
         <Box
           sx={{
@@ -63,11 +68,17 @@ export default function NavBar({ scrolled }: { scrolled?: boolean }) {
       </Box>
 
       {/* Nav Links */}
-      <Box sx={{ display: { xs: "none", md: "flex" }, gap: 4, alignItems: "center" }}>
+      <Box
+        sx={{
+          display: { xs: "none", md: "flex" },
+          gap: 4,
+          alignItems: "center",
+        }}
+      >
         {[
           { label: "שירותים", id: "services" },
           { label: "פרויקטים", id: "projects" },
-          { label: "עלינו", id: "about" },
+          { label: "אודות", id: "about" },
         ].map((link) => (
           <Box
             key={link.id}

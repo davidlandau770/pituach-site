@@ -1,5 +1,6 @@
 import { type FC, useEffect, useRef, useState } from "react";
 import { Box, Typography, Container, Grid } from "@mui/material";
+import SectionHeader from "../components/SectionHeader";
 import BoltIcon from "@mui/icons-material/Bolt";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import DevicesIcon from "@mui/icons-material/Devices";
@@ -107,7 +108,7 @@ const AboutSection: FC = () => {
       id="about"
       ref={ref}
       sx={{
-        py: { xs: 4, md: 11 },
+        py: { xs: 4, md: 8 },
         background: "rgba(14, 19, 35, 0.4)",
         maskImage: sectionMask,
         WebkitMaskImage: sectionMask,
@@ -183,6 +184,7 @@ const AboutSection: FC = () => {
       />
 
       <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
+        <SectionHeader badge="אודות" title="מפתחים שאוהבים את מה שהם עושים" />
         <Grid container spacing={{ xs: 6, md: 10 }} alignItems="center">
           <Grid
             item
@@ -194,61 +196,6 @@ const AboutSection: FC = () => {
               transition: "all 0.9s ease",
             }}
           >
-            <Box
-              sx={{
-                display: "inline-flex",
-                px: 2.5,
-                py: 1,
-                borderRadius: "50px",
-                border: "1px solid rgba(120, 108, 190, 0.25)",
-                background: "rgba(90, 78, 160, 0.07)",
-                mb: 3,
-              }}
-            >
-              <Typography
-                sx={{
-                  background: "linear-gradient(90deg, #F0C050, #E07840)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                  fontSize: "0.82rem",
-                  fontWeight: 600,
-                  letterSpacing: 1,
-                  filter: "drop-shadow(0 0 6px rgba(240, 192, 80, 0.4))",
-                }}
-              >
-                עלינו
-              </Typography>
-            </Box>
-
-            <Typography
-              variant="h2"
-              sx={{
-                fontSize: { xs: "2rem", md: "2.7rem" },
-                fontWeight: 800,
-                background: "linear-gradient(135deg, #F0ECE4 0%, #D0C8E8 55%, #A8C0D4 100%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-                mb: 3,
-                lineHeight: 1.2,
-              }}
-            >
-              מפתחים שאוהבים
-              <Box
-                component="span"
-                sx={{
-                  display: "block",
-                  background: "linear-gradient(135deg, #9A8FD8, #5BACC4)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                }}
-              >
-                את מה שהם עושים
-              </Box>
-            </Typography>
-
             <Typography
               sx={{
                 color: "#B8CCE0",

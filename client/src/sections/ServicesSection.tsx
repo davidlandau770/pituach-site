@@ -52,6 +52,7 @@ const ServiceCard: FC<{
           alignItems: "center",
           justifyContent: "center",
           mb: 3,
+          mx: "auto",
           boxShadow: `0 3px 16px ${service.color}25`,
           transition: "transform 0.4s ease",
           transform: hovered ? "scale(1.1) rotate(4deg)" : "scale(1)",
@@ -66,6 +67,7 @@ const ServiceCard: FC<{
           fontWeight: 700,
           color: service.color,
           mb: 1.5,
+          textAlign: "center",
           textShadow: `0 0 12px ${service.color}50`,
         }}
       >
