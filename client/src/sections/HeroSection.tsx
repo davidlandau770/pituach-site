@@ -18,7 +18,7 @@ const HeroSection: FC<Props> = ({ onScrollTo }) => {
         justifyContent: "center",
         position: "relative",
         overflow: "hidden",
-        pt: 12,
+        pt: 8,
       }}
     >
       <Box
@@ -36,7 +36,6 @@ const HeroSection: FC<Props> = ({ onScrollTo }) => {
           pointerEvents: "none",
         }}
       />
-
 
       <Box
         sx={{
@@ -113,7 +112,7 @@ const HeroSection: FC<Props> = ({ onScrollTo }) => {
             borderRadius: "50px",
             border: "1px solid rgba(120, 108, 190, 0.25)",
             background: "rgba(90, 78, 165, 0.07)",
-            mb: 6,
+            mb: 4,
             backdropFilter: "blur(12px)",
             animation: "fadeInUp 0.8s ease both",
             mt: { xs: 0, md: 2 },
@@ -266,12 +265,12 @@ const HeroSection: FC<Props> = ({ onScrollTo }) => {
           }}
         >
           {[
-            { label: "React",        color: "#82B8CC" },
-            { label: "TypeScript",   color: "#7EAF8A" },
-            { label: "Node.js",      color: "#C4A86A" },
-            { label: "PostgreSQL",   color: "#A49AC8" },
+            { label: "React", color: "#82B8CC" },
+            { label: "TypeScript", color: "#7EAF8A" },
+            { label: "Node.js", color: "#C4A86A" },
+            { label: "PostgreSQL", color: "#A49AC8" },
             { label: "React Native", color: "#C08888" },
-            { label: "Docker",       color: "#7ABDD4" },
+            { label: "Docker", color: "#7ABDD4" },
           ].map(({ label, color }, i) => (
             <Chip
               key={label}
@@ -293,7 +292,6 @@ const HeroSection: FC<Props> = ({ onScrollTo }) => {
           ))}
         </Box>
       </Container>
-
     </Box>
   );
 };
