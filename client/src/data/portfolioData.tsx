@@ -15,7 +15,7 @@ export const TYPEWRITER_PHRASES = [
   "אפליקציות שעובדות",
   "קוד שחי ונושם",
   "חוויות שלא נשכחות",
-  "פתרונות שמדרגים",
+  "מערכות שמחזיקות",
 ];
 
 export interface ServiceItem {
