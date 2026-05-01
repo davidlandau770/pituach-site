@@ -5,11 +5,11 @@ import BoltIcon from "@mui/icons-material/Bolt";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import DevicesIcon from "@mui/icons-material/Devices";
 import HandshakeIcon from "@mui/icons-material/Handshake";
-import SettingsIcon from "@mui/icons-material/Settings";
+import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import { SKILLS } from "../data/portfolioData";
 
 const sectionMask =
-  "linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%)";
+  "linear-gradient(to bottom, transparent 0%, black 5%, black 95%, transparent 100%)";
 
 const SkillBar: FC<{
   name: string;
@@ -78,7 +78,7 @@ const features = [
   },
   {
     Icon: HandshakeIcon,
-    text: "ליווי אישי מלא — לא נעלמים אחרי הלאונץ'",
+    text: "ליווי אישי מלא — עדכונים שוטפים ותקשורת פתוחה",
     color: "#C48A78",
   },
 ];
@@ -217,8 +217,8 @@ const AboutSection: FC = () => {
                 fontSize: "0.97rem",
               }}
             >
-              עם יותר מ-5 שנות ניסיון בפיתוח Full-Stack, טיפלנו בכל דבר
-              מאפליקציות סטארטאפ קטנות ועד מערכות ארגוניות מורכבות. כל פרויקט
+              עם ניסיון מעשי בפרויקטים מגוונים, בנינו פתרונות מהרעיון ועד
+              ההשקה — מאפליקציות לסטארטאפים ועד כלים לניהול עסקים. כל פרויקט
               מקבל את מלוא תשומת הלב שלנו.
             </Typography>
 
@@ -279,7 +279,7 @@ const AboutSection: FC = () => {
               <Box
                 sx={{ display: "flex", alignItems: "center", gap: 1.5, mb: 4 }}
               >
-                <SettingsIcon sx={{ fontSize: "1.1rem", color: "#9A90C8" }} />
+                <CheckCircleOutlineIcon sx={{ fontSize: "1.1rem", color: "#9A90C8" }} />
                 <Typography
                   sx={{
                     fontSize: "1.05rem",
@@ -287,7 +287,7 @@ const AboutSection: FC = () => {
                     color: "#D4DCEC",
                   }}
                 >
-                  מחסנית הטכנולוגיה שלנו
+                  מה תקבל אצלנו
                 </Typography>
               </Box>
               {SKILLS.map((skill, i) => (

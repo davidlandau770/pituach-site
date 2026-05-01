@@ -7,7 +7,6 @@ import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
 import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
 import SupportAgentIcon from "@mui/icons-material/SupportAgent";
 import LocalShippingIcon from "@mui/icons-material/LocalShipping";
-import GroupsIcon from "@mui/icons-material/Groups";
 import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
 
 export const TYPEWRITER_PHRASES = [
@@ -49,7 +48,7 @@ export const SERVICES: ServiceItem[] = [
       "תשתית שורדת עומסים. APIs חזקים ומסדי נתונים יציבים שלא נופלים תחת לחץ.",
     features: [
       "Node.js & Express",
-      "PostgreSQL & Redis",
+      "PostgreSQL",
       "REST & WebSockets",
       "Microservices",
     ],
@@ -60,12 +59,12 @@ export const SERVICES: ServiceItem[] = [
     icon: SmartphoneIcon,
     title: "אפליקציות מובייל",
     description:
-      "חוויה נייטיב על iOS ו-Android. קוד אחד, שתי פלטפורמות, תוצאה שמדהימה.",
+      "אפליקציות Android נייטיב שנראות ומרגישות מקצועיות. קוד אחד, תוצאה שמדהימה.",
     features: [
       "React Native",
       "Expo Framework",
-      "Push Notifications",
-      "App Store Deploy",
+      "WebView",
+      "Google Play Deploy",
     ],
     color: "#C48A78",
     gradient: "linear-gradient(135deg, #9E5E48, #7E4888)",
@@ -82,14 +81,14 @@ export interface StatItem {
 
 export const STATS: StatItem[] = [
   {
-    number: 5,
+    number: 2,
     suffix: "+",
     label: "שנות ניסיון",
     icon: BoltIcon,
     color: "#C4A86A",
   },
   {
-    number: 50,
+    number: 3,
     suffix: "+",
     label: "פרויקטים הושלמו",
     icon: RocketLaunchIcon,
@@ -104,8 +103,8 @@ export const STATS: StatItem[] = [
   },
   {
     number: 24,
-    suffix: "/7",
-    label: "תמיכה ומענה",
+    suffix: 'ש\'',
+    label: "תמיכה וזמינות",
     icon: SupportAgentIcon,
     color: "#BBA0E0",
   },
@@ -118,44 +117,46 @@ export interface ProjectItem {
   tech: string[];
   gradient: string;
   color: string;
+  link?: string;
 }
 
 export const PROJECTS: ProjectItem[] = [
   {
     icon: LocalShippingIcon,
-    title: "מערכת ניהול לוגיסטית",
+    title: "מערכת ניהול הפלגות",
     description:
-      "פלטפורמה מלאה לניהול שרשרת אספקה עם מעקב real-time, דשבורד ניהולי, ואינטגרציה למערכות ERP.",
-    tech: ["React", "Node.js", "PostgreSQL", "WebSockets"],
+      "מערכת לניהול מסלולים והפלגות לחברת ספינות משא — שיוך הזמנות למסלולים עם סינון חכם לפי יעדים וקיבולת, אינטגרציה ל-DB חיצוני ומפה חיה של מיקומי הספינות.",
+    tech: ["React", "Node.js", "PostgreSQL", "Mapbox"],
     gradient: "linear-gradient(135deg, #12152A, #1A2045)",
     color: "#8A9ECC",
   },
   {
-    icon: GroupsIcon,
+    icon: SmartphoneIcon,
     title: "אפליקציית קהילה חברתית",
     description:
-      "אפליקציה לבניית קהילות מקומיות עם צ'אט, ניהול אירועים, ומפת נקודות עניין חיה.",
-    tech: ["React Native", "Expo", "Firebase", "Google Maps"],
+      "אפליקציה לקריאה ועריכת תוכן תורני — ניווט מלא, רענון במשיכה ושיתוף תוכן.",
+    tech: ["React Native", "Expo", "WebView"],
     gradient: "linear-gradient(135deg, #0D1A28, #162438)",
     color: "#7ABDD4",
+    link: "https://play.google.com/store/apps/details?id=il.co.chabadpedia.app",
   },
   {
     icon: AutoAwesomeIcon,
-    title: "פלטפורמת תמלול AI",
+    title: "משחק טריוויה",
     description:
-      "כלי לסנכרון ותמלול אוטומטי של שמע וטקסט בעברית, עם עורך חכם ואפשרות לייצוא מהיר.",
-    tech: ["React", "Python", "Whisper AI", "FastAPI"],
+      "משחק חידות עם בחירת רמת קושי, שאלות ברצף, מעקב זמן פתרון והצגת שיא אישי.",
+    tech: ["Node.js", "MongoDB", "Supabase"],
     gradient: "linear-gradient(135deg, #0F1520, #1A1F35)",
     color: "#BBA0E0",
   },
 ];
 
 export const SKILLS = [
-  { name: "React / TypeScript", level: 95, color: "#82B8CC" },
-  { name: "Node.js / Express", level: 90, color: "#7EAF8A" },
-  { name: "PostgreSQL / MongoDB", level: 85, color: "#C4A86A" },
-  { name: "React Native", level: 80, color: "#A49AC8" },
-  { name: "DevOps / Docker", level: 75, color: "#C08888" },
+  { name: "פיתוח Front-End — React & TypeScript", level: 90, color: "#82B8CC" },
+  { name: "פיתוח Back-End — Node.js & Express", level: 82, color: "#7EAF8A" },
+  { name: "מסדי נתונים ותשתיות", level: 78, color: "#C4A86A" },
+  { name: "אפליקציות מובייל — React Native", level: 72, color: "#A49AC8" },
+  { name: "DevOps ופריסה לענן", level: 65, color: "#C08888" },
 ];
 
 export const PARTICLES = [

@@ -234,6 +234,7 @@ const HeroSection: FC<Props> = ({ onScrollTo }) => {
           <Button
             onClick={() => onScrollTo("projects")}
             sx={{
+              gap: 1,
               px: { xs: 4, md: 5.5 },
               py: { xs: 1.4, md: 1.8 },
               borderRadius: "50px",
@@ -251,7 +252,7 @@ const HeroSection: FC<Props> = ({ onScrollTo }) => {
               },
             }}
           >
-            הפרויקטים שלנו ↓
+            <Box>הפרויקטים שלנו</Box> <Box>↓</Box>
           </Button>
         </Box>
 

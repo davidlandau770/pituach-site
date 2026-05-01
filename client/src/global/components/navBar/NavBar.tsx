@@ -129,7 +129,7 @@ export default function NavBar({ scrolled }: { scrolled?: boolean }) {
           },
         }}
       >
-        בואו נדבר
+        צרו קשר
       </Button>
     </Box>
   );

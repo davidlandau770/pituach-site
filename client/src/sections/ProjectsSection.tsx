@@ -1,5 +1,6 @@
 import { type FC, useState } from "react";
-import { Box, Typography, Container, Grid, Chip } from "@mui/material";
+import { Box, Typography, Container, Grid, Chip, Button } from "@mui/material";
+import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import type { SvgIconProps } from "@mui/material";
 import type { ElementType } from "react";
 import SectionHeader from "../components/SectionHeader";
@@ -121,7 +122,14 @@ const ProjectCard: FC<{
         >
           {project.description}
         </Typography>
-        <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.7 }}>
+        <Box
+          sx={{
+            display: "flex",
+            flexWrap: "wrap",
+            gap: 0.7,
+            mb: project.link ? 2 : 0,
+          }}
+        >
           {project.tech.map((t) => (
             <Chip
               key={t}
@@ -137,6 +145,35 @@ const ProjectCard: FC<{
             />
           ))}
         </Box>
+        {project.link && (
+          <Button
+            component="a"
+            href={project.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            startIcon={<OpenInNewIcon />}
+            size="small"
+            sx={{
+              gap: 1,
+              borderRadius: "50px",
+              border: `1px solid ${project.color}40`,
+              color: project.color,
+              fontSize: "0.78rem",
+              fontWeight: 600,
+              textTransform: "none",
+              px: 2,
+              py: 0.6,
+              background: `${project.color}08`,
+              transition: "all 0.3s ease",
+              "&:hover": {
+                background: `${project.color}18`,
+                borderColor: `${project.color}80`,
+              },
+            }}
+          >
+            צפייה ב-Google Play
+          </Button>
+        )}
       </Box>
     </Box>
   );

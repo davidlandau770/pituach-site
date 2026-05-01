@@ -44,7 +44,8 @@ const Portfolio: FC = () => {
             width: p.size,
             height: p.size,
             borderRadius: "50%",
-            background: "radial-gradient(circle, rgba(160, 148, 220, 0.9), transparent 70%)",
+            background:
+              "radial-gradient(circle, rgba(160, 148, 220, 0.9), transparent 70%)",
             boxShadow: `0 0 ${p.size * 2}px rgba(140, 120, 210, 0.5)`,
             animation: `particleRise ${p.dur}s ease-in-out ${p.delay}s infinite`,
             pointerEvents: "none",
