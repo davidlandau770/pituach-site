@@ -12,13 +12,14 @@ const HeroSection: FC<Props> = ({ onScrollTo }) => {
     <Box
       id="hero"
       sx={{
-        minHeight: "100vh",
+        minHeight: { xs: "auto", md: "100vh" },
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
         position: "relative",
         overflow: "hidden",
-        pt: { xs: 4, md: 8 },
+        pt: { xs: 10, md: 8 },
+        pb: { xs: 8, md: 0 },
       }}
     >
       <Box
