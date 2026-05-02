@@ -46,7 +46,7 @@ const SectionHeader: FC<Props> = ({ badge, title, subtitle }) => {
       <Typography
         variant="h2"
         sx={{
-          fontSize: { xs: "1.6rem", md: "2.3rem" },
+          fontSize: { xs: "1.7rem", md: "2.3rem" },
           fontWeight: 800,
           background: "linear-gradient(135deg, #F0ECE4 0%, #D0C8E8 55%, #A8C0D4 100%)",
           WebkitBackgroundClip: "text",

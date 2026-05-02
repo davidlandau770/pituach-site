@@ -201,7 +201,7 @@ const AboutSection: FC = () => {
                 color: "#B8CCE0",
                 lineHeight: 1.9,
                 mb: 3,
-                fontSize: "0.97rem",
+                fontSize: "1.05rem",
               }}
             >
               פיתוח 770 הוא בית תוכנה שמאמין שקוד טוב הוא קוד שמשרת את הלקוח.
@@ -214,7 +214,7 @@ const AboutSection: FC = () => {
                 color: "#B8CCE0",
                 lineHeight: 1.9,
                 mb: 4,
-                fontSize: "0.97rem",
+                fontSize: "1.05rem",
               }}
             >
               עם ניסיון מעשי בפרויקטים מגוונים, בנינו פתרונות מהרעיון ועד

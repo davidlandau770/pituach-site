@@ -75,7 +75,7 @@ const ServiceCard: FC<{
       </Typography>
 
       <Typography
-        sx={{ color: "#B4C8DC", lineHeight: 1.8, mb: 3, fontSize: "0.93rem" }}
+        sx={{ color: "#B4C8DC", lineHeight: 1.8, mb: 3, fontSize: "1rem" }}
       >
         {service.description}
       </Typography>
@@ -96,7 +96,7 @@ const ServiceCard: FC<{
                 boxShadow: `0 0 5px ${service.color}70`,
               }}
             />
-            <Typography sx={{ color: "#AABCCE", fontSize: "0.85rem" }}>
+            <Typography sx={{ color: "#AABCCE", fontSize: "0.92rem" }}>
               {feature}
             </Typography>
           </Box>

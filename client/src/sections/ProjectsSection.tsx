@@ -114,7 +114,7 @@ const ProjectCard: FC<{
         <Typography
           sx={{
             color: "#B4C8DC",
-            fontSize: "0.88rem",
+            fontSize: "0.95rem",
             lineHeight: 1.75,
             mb: 2.5,
             flex: 1,

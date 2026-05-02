@@ -185,7 +185,7 @@ const HeroSection: FC<Props> = ({ onScrollTo }) => {
 
         <Typography
           sx={{
-            fontSize: { xs: "0.95rem", md: "1.08rem" },
+            fontSize: { xs: "1.05rem", md: "1.08rem" },
             color: "#B8CCE0",
             maxWidth: 560,
             mx: "auto",
