@@ -18,7 +18,7 @@ const HeroSection: FC<Props> = ({ onScrollTo }) => {
         justifyContent: "center",
         position: "relative",
         overflow: "hidden",
-        pt: 8,
+        pt: { xs: 4, md: 8 },
       }}
     >
       <Box

@@ -110,7 +110,8 @@ const ServicesSection: FC = () => (
   <Box
     id="services"
     sx={{
-      py: { xs: 4, md: 11 },
+      pt: { xs: 2, md: 11 },
+      pb: { xs: 4, md: 11 },
       position: "relative",
       overflow: "hidden",
     }}
