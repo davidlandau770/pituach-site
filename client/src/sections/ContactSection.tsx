@@ -24,7 +24,7 @@ interface FormData {
 const fieldSx = (focused: string | null, name: string) => ({
   "& .MuiOutlinedInput-root": {
     borderRadius: "11px",
-    background: "rgba(12, 18, 34, 0.65)",
+    background: "rgba(9, 13, 26, 0.95)",
     backdropFilter: "blur(10px)",
     color: "#D4DCEC",
     transition: "all 0.3s ease",
@@ -238,8 +238,8 @@ const ContactSection: FC = () => {
           sx={{
             borderRadius: "22px",
             p: { xs: 3, md: 5 },
-            background: "rgba(14, 20, 38, 0.65)",
-            border: "1px solid rgba(100, 90, 155, 0.14)",
+            background: "rgba(14, 20, 38, 0.85)",
+            border: "1px solid rgba(100, 90, 155, 0.22)",
             backdropFilter: "blur(20px)",
             boxShadow: "0 16px 50px rgba(0,0,0,0.28)",
           }}
