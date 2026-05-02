@@ -31,12 +31,12 @@ export const SERVICES: ServiceItem[] = [
     icon: WebIcon,
     title: "פיתוח Front-End",
     description:
-      "ממשקי משתמש חיים שכיף להשתמש בהם. מהיר, נגיש, ומרשים בכל מסך ובכל מכשיר.",
+      "ממשקי משתמש חיים, מהירים ונוחים לשימוש — כאלה שכיף להישאר בהם. חוויה חלקה, נגישה ומרשימה בכל מסך ובכל מכשיר.",
     features: [
       "React & TypeScript",
-      "אנימציות חלקות",
-      "עיצוב רספונסיבי",
-      "UX/UI מוקפד",
+      "אנימציות חלקות ומדויקות",
+      "עיצוב רספונסיבי לכל מסך",
+      "UX/UI מוקפד ומודרני",
     ],
     color: "#8578C4",
     gradient: "linear-gradient(135deg, #6B5FA0, #4A5D9A)",
@@ -45,7 +45,7 @@ export const SERVICES: ServiceItem[] = [
     icon: StorageIcon,
     title: "פיתוח Back-End",
     description:
-      "תשתית שורדת עומסים. APIs חזקים ומסדי נתונים יציבים שלא נופלים תחת לחץ.",
+      "תשתית שורדת עומסים. APIs חזקים, מסדי נתונים יציבים ואבטחה מובנית — שלא נופלים תחת לחץ.",
     features: [
       "Node.js & Express",
       "PostgreSQL",
@@ -59,12 +59,12 @@ export const SERVICES: ServiceItem[] = [
     icon: SmartphoneIcon,
     title: "אפליקציות מובייל",
     description:
-      "אפליקציות Android נייטיב שנראות ומרגישות מקצועיות. קוד אחד, תוצאה שמדהימה.",
+      "אפליקציות נייטיב שנראות, מרגישות ומשיגות ביצועים ברמה מקצועית. קוד אחד, תוצאה שמדהימה.",
     features: [
       "React Native",
       "Expo Framework",
       "WebView",
-      "Google Play Deploy",
+      "העלאה ל־Google Play",
     ],
     color: "#C48A78",
     gradient: "linear-gradient(135deg, #9E5E48, #7E4888)",
