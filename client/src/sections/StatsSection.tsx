@@ -6,7 +6,7 @@ import { STATS } from "../data/portfolioData";
 import { useInView } from "../hooks/useInView";
 import { useCountUp } from "../hooks/useCountUp";
 
-const sectionMask = "linear-gradient(to bottom, transparent 0%, black 14%, black 86%, transparent 100%)";
+const sectionMask = "linear-gradient(to bottom, transparent 0%, black 8%, black 96%, transparent 100%)";
 
 const StatItem: FC<{ stat: (typeof STATS)[number]; delay: number }> = ({ stat, delay }) => {
   const { ref, inView } = useInView(0.3);
@@ -63,7 +63,8 @@ const StatItem: FC<{ stat: (typeof STATS)[number]; delay: number }> = ({ stat, d
 const StatsSection: FC = () => (
   <Box
     sx={{
-      py: { xs: 3, md: 9 },
+      pt: { xs: 3, md: 9 },
+      pb: { xs: 1, md: 9 },
       background: "linear-gradient(135deg, rgba(90, 78, 160, 0.06), rgba(50, 120, 170, 0.04))",
       maskImage: sectionMask,
       WebkitMaskImage: sectionMask,
