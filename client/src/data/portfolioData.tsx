@@ -5,7 +5,7 @@ import SmartphoneIcon from "@mui/icons-material/Smartphone";
 import BoltIcon from "@mui/icons-material/Bolt";
 import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
 import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
-import SupportAgentIcon from "@mui/icons-material/SupportAgent";
+import HeadsetMicIcon from "@mui/icons-material/HeadsetMic";
 import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
 
@@ -105,7 +105,7 @@ export const STATS: StatItem[] = [
     number: 24,
     suffix: 'ש\'',
     label: "תמיכה וזמינות",
-    icon: SupportAgentIcon,
+    icon: HeadsetMicIcon,
     color: "#BBA0E0",
   },
 ];

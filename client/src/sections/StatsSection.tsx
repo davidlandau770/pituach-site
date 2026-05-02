@@ -63,7 +63,7 @@ const StatItem: FC<{ stat: (typeof STATS)[number]; delay: number }> = ({ stat, d
 const StatsSection: FC = () => (
   <Box
     sx={{
-      py: { xs: 6, md: 9 },
+      py: { xs: 3, md: 9 },
       background: "linear-gradient(135deg, rgba(90, 78, 160, 0.06), rgba(50, 120, 170, 0.04))",
       maskImage: sectionMask,
       WebkitMaskImage: sectionMask,

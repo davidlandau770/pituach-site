@@ -12,7 +12,7 @@ const SectionHeader: FC<Props> = ({ badge, title, subtitle }) => {
   const { ref, inView } = useInView(0.2);
 
   return (
-    <Box ref={ref} sx={{ textAlign: "center", mb: { xs: 6, md: 8 } }}>
+    <Box ref={ref} sx={{ textAlign: "center", mb: { xs: 4, md: 8 } }}>
       <Box
         sx={{
           display: "inline-flex",
@@ -33,7 +33,7 @@ const SectionHeader: FC<Props> = ({ badge, title, subtitle }) => {
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
             backgroundClip: "text",
-            fontSize: "0.82rem",
+            fontSize: "0.92rem",
             fontWeight: 600,
             letterSpacing: 1,
             filter: "drop-shadow(0 0 6px rgba(240, 192, 80, 0.4))",
@@ -46,7 +46,7 @@ const SectionHeader: FC<Props> = ({ badge, title, subtitle }) => {
       <Typography
         variant="h2"
         sx={{
-          fontSize: { xs: "1.9rem", md: "2.7rem" },
+          fontSize: { xs: "1.6rem", md: "2.3rem" },
           fontWeight: 800,
           background: "linear-gradient(135deg, #F0ECE4 0%, #D0C8E8 55%, #A8C0D4 100%)",
           WebkitBackgroundClip: "text",
@@ -70,7 +70,7 @@ const SectionHeader: FC<Props> = ({ badge, title, subtitle }) => {
             WebkitTextFillColor: "transparent",
             backgroundClip: "text",
             animation: inView ? "gradientShift 8s ease infinite" : "none",
-            fontSize: { xs: "0.95rem", md: "1.05rem" },
+            fontSize: { xs: "1rem", md: "1.12rem" },
             maxWidth: 560,
             mx: "auto",
             lineHeight: 1.8,
