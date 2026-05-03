@@ -5,6 +5,7 @@ export const sendContactEmailService = async (
   name: string,
   email: string,
   message: string,
+  clientId: string,
 ): Promise<void> => {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailRegex.test(email)) {
@@ -18,7 +19,7 @@ export const sendContactEmailService = async (
   const res = await fetch(GOOGLE_SHEET_URL, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ name, email, message }),
+    body: JSON.stringify({ name, email, message, clientId }),
     redirect: "follow",
   });
 

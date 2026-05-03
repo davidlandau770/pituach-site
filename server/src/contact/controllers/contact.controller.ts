@@ -11,7 +11,9 @@ export const sendContactController = async (req: Request, res: Response) => {
       throw new CustomError("כל השדות נדרשים", 400, "CONTACT");
     }
 
-    await sendContactEmailService(name, email, message);
+    const clientId = "pituach_770";
+
+    await sendContactEmailService(name, email, message, clientId);
     res.status(200).json({ message: "ההודעה נשלחה בהצלחה" });
   } catch (error) {
     handleError(res, error, 500, "CONTACT");
