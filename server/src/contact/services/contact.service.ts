@@ -12,19 +12,31 @@ export const sendContactEmailService = async (
     throw new CustomError("כתובת אימייל לא תקינה", 400, "VALIDATION");
   }
 
-  if (message.length < 5) {
+  const safeName = name.trim();
+  const safeMessage = message.trim();
+
+  if (safeMessage.length < 5) {
     throw new CustomError("ההודעה קצרה מדי", 400, "VALIDATION");
   }
 
   const res = await fetch(GOOGLE_SHEET_URL, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ name, email, message, clientId }),
-    redirect: "follow",
+    body: JSON.stringify({
+      name: safeName,
+      email,
+      message: safeMessage,
+      clientId,
+    }),
   });
 
-  const text = await res.text();
-  if (!text.includes("success")) {
+  if (!res.ok) {
+    throw new CustomError("שגיאה בשליחה לשרת גוגל", res.status, "GOOGLE_ERROR");
+  }
+
+  const json = await res.json();
+
+  if (json.result !== "success") {
     throw new CustomError("חלה שגיאה בסנכרון הנתונים", 500, "GOOGLE_ERROR");
   }
 };

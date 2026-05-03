@@ -14,6 +14,7 @@ import PhoneIcon from "@mui/icons-material/Phone";
 import SendIcon from "@mui/icons-material/Send";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import SectionHeader from "../components/SectionHeader";
+import { VITE_API_URL, VITE_CLID } from "../helpers/environments";
 
 interface FormData {
   name: string;
@@ -108,12 +109,16 @@ const ContactSection: FC = () => {
     e.preventDefault();
     setStatus("loading");
     setErrorMessage("");
+    console.log(VITE_API_URL, VITE_CLID);
 
     try {
-      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/contact`, {
+      const res = await fetch(`${VITE_API_URL}/api/contact`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify({
+          ...form,
+          clientId: VITE_CLID,
+        }),
       });
 
       const data = await res.json();
