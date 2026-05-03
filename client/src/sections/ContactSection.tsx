@@ -109,6 +109,7 @@ const ContactSection: FC = () => {
     e.preventDefault();
     setStatus("loading");
     setErrorMessage("");
+    console.log(VITE_API_URL, VITE_CLID);
 
     try {
       const res = await fetch(`${VITE_API_URL}/api/contact`, {
