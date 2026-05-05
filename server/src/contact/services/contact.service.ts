@@ -1,5 +1,6 @@
-import { GOOGLE_SHEET_URL, SITE_URL } from "../../helpers/environments";
+import { SITE_URL } from "../../helpers/environments";
 import { CustomError } from "../../utils/handleError";
+import { sendContactEmailDAL } from "../dal/contact.dal";
 
 export const sendContactEmailService = async (
   name: string,
@@ -7,6 +8,7 @@ export const sendContactEmailService = async (
   message: string,
   clientId: string,
 ): Promise<void> => {
+  // 1. ולידציות
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailRegex.test(email)) {
     throw new CustomError("כתובת אימייל לא תקינה", 400, "VALIDATION");
@@ -19,12 +21,12 @@ export const sendContactEmailService = async (
     throw new CustomError("ההודעה קצרה מדי", 400, "VALIDATION");
   }
 
+  // 2. הכנת התוכן (לוגיקה עסקית)
   const siteName = "פיתוח 770";
-
-  const clientEmailSubject = `תודה על פנייתך לפיתוח 770`;
+  const clientEmailSubject = `תודה על פנייתך ל${siteName}`;
   const clientEmailHtml = `
     <div dir="rtl" style="font-family: sans-serif; line-height: 1.6; text-align: right;">
-      <h2 style="color: #333;">היי ${safeName || "שלום"},</h2>
+      <h2 style="color: #333;">היי ${safeName},</h2>
       <p>תודה שפנית אלינו. קיבלנו את הודעתך ונחזור אליך בהקדם.</p>
       <div style="background: #f9f9f9; padding: 10px; border-right: 4px solid #ddd; margin: 15px 0;">
         <p style="margin: 0; font-style: italic;">"${safeMessage}"</p>
@@ -34,34 +36,13 @@ export const sendContactEmailService = async (
     </div>
   `;
 
-  const res = await fetch(GOOGLE_SHEET_URL, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      clientId,
-      name: safeName,
-      email: email.toLowerCase().trim(),
-      message: safeMessage,
-      clientEmailSubject,
-      clientEmailHtml,
-    }),
+  // 3. קריאה לשכבת הנתונים
+  await sendContactEmailDAL({
+    clientId,
+    name: safeName,
+    email: email.toLowerCase().trim(),
+    message: safeMessage,
+    clientEmailSubject,
+    clientEmailHtml,
   });
-
-  if (!res.ok) {
-    throw new CustomError(
-      "שגיאה בתקשורת עם שרת הנתונים",
-      res.status,
-      "GOOGLE_ERROR",
-    );
-  }
-
-  const json = await res.json();
-
-  if (json.result !== "success") {
-    throw new CustomError(
-      json.message || "חלה שגיאה בסנכרון הנתונים",
-      500,
-      "GOOGLE_ERROR",
-    );
-  }
 };
