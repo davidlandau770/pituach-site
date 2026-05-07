@@ -5,4 +5,8 @@ const router = express.Router();
 
 router.use("/api/contact", contactRoutes);
 
+router.get("/api/ping", (_req, res) => {
+  res.json([]);
+});
+
 export default router;
