@@ -6,7 +6,7 @@ const router = express.Router();
 router.use("/api/contact", contactRoutes);
 
 router.get("/api/ping", (_req, res) => {
-  res.json([]);
+  res.json([{ q: "אני חי?", a: "כן!!!" }]);
 });
 
 export default router;
