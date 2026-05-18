@@ -1,4 +1,5 @@
 import { Box, Typography, Button } from "@mui/material";
+import logo from "../../../assets/לוגו.png";
 
 const scrollTo = (id: string) => {
   document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
@@ -36,24 +37,11 @@ export default function NavBar({ scrolled }: { scrolled?: boolean }) {
         }}
       >
         <Box
-          sx={{
-            width: 36,
-            height: 36,
-            borderRadius: "10px",
-            background: "linear-gradient(135deg, #6B5FA8, #4A7AA8)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            fontSize: "0.72rem",
-            fontWeight: 900,
-            color: "#E8E4F8",
-            boxShadow: "0 0 14px rgba(100, 85, 170, 0.3)",
-            letterSpacing: "-0.5px",
-            flexShrink: 0,
-          }}
-        >
-          770
-        </Box>
+          component="img"
+          src={logo}
+          alt="לוגו פיתוח 770"
+          sx={{ height: 50, width: "auto", flexShrink: 0 }}
+        />
         <Typography
           sx={{
             fontWeight: 800,

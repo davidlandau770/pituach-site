@@ -1,6 +1,7 @@
 import { useState, type FC } from "react";
 import { Box, Typography } from "@mui/material";
 import AccessibilityStatement from "../components/AccessibilityStatement";
+import logo from "../assets/לוגו.png";
 
 const FooterSection: FC = () => {
   const [open, setOpen] = useState(false);
@@ -21,22 +22,11 @@ const FooterSection: FC = () => {
       >
         <Box sx={{ display: "flex", alignItems: "center", gap: 1.5 }}>
           <Box
-            sx={{
-              width: 30,
-              height: 30,
-              borderRadius: "8px",
-              background: "linear-gradient(135deg, #6B5FA8, #4A7AA8)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              fontSize: "0.6rem",
-              fontWeight: 900,
-              color: "#E8E4F8",
-              flexShrink: 0,
-            }}
-          >
-            770
-          </Box>
+            component="img"
+            src={logo}
+            alt="לוגו פיתוח 770"
+            sx={{ height: 32, width: "auto", flexShrink: 0 }}
+          />
           <Typography sx={{ color: "#607898", fontSize: "0.82rem" }}>
             נבנה על ידי פיתוח 770
           </Typography>

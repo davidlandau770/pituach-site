@@ -136,9 +136,8 @@ body {
 @keyframes titlePulse {
   0%   { opacity: 1;    transform: scale(1); }
   10%  { opacity: 0;    transform: scale(0.88); }
-  16%  { opacity: 0;    transform: scale(0.62); }
-  42%  { opacity: 1;    transform: scale(1.07); }
-  56%  { opacity: 1;    transform: scale(1); }
+  24%  { opacity: 1;    transform: scale(1.04); }
+  32%  { opacity: 1;    transform: scale(1); }
   74%  { opacity: 0.72; transform: scale(0.96); }
   100% { opacity: 1;    transform: scale(1); }
 }
